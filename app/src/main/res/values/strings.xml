@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Movement Reminder</string>
+    <string name="PainForm">Pain Form</string>
+    <string name="AddExercise">Add Exercise</string>
+    <string name="ViewAnalysis">View Analysis of Joint Pains Overtime</string>
+</resources>
