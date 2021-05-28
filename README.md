@@ -3,3 +3,4 @@ An application specifically catered towards a client in need, providing daily ex
 
 Team Members:
 - Marco Cen
+- Obaida Kandakji
