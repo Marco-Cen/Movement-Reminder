@@ -12,13 +12,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-<<<<<<< HEAD
-        //-- Set Title --
-        setTitle("Welcome!");
-        setContentView(R.layout.activity_main);
-
-    }
-=======
         //-- Sets title of application --
         setTitle("Welcome");
 //        setContentView(R.layout.activity_main);
@@ -28,5 +21,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
->>>>>>> main
 }
