@@ -1,6 +1,16 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Movement Reminder</string>
     <string name="PainForm">Pain Form</string>
     <string name="AddExercise">Add Exercise</string>
     <string name="ViewAnalysis">View Analysis of Joint Pains Overtime</string>
 </resources>
+=======
+    //Title in Action Bar Above (Default if not overwritten)
+    <string name="app_name">Movement Reminder</string>
+
+    <string name="PainFormString">Pain Form</string>
+    <string name="AddExerciseString">Add Exercise</string>
+    <string name="ViewAnalysisString">View Analysis of Joint Pains Overtime</string>
+</resources>
+>>>>>>> main
