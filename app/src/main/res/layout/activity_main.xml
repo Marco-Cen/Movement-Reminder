@@ -8,7 +8,6 @@
 
     <LinearLayout
         android:id="@+id/logo"
-<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,64 +17,30 @@
             android:id="@+id/MakerMovePic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/MakerMove" />
-=======
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="false"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:scaleX="1"
-        android:translationY="200dp">
-
-        <ImageView
-            android:id="@+id/MakerMove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/logo" />
->>>>>>> main
+            app:srcCompat="@drawable/makermove" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:orientation="vertical"
         android:translationY="300dp">
-=======
-        android:layout_centerHorizontal="false"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:translationY="350dp">
->>>>>>> main
 
         <Button
             android:id="@+id/PainForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:text="@string/PainForm" />
-=======
-            android:text="@string/PainFormString" />
->>>>>>> main
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="25dp" />
 
         <Button
-<<<<<<< HEAD
             android:id="@+id/AddExercise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/AddExercise" />
-=======
-            android:id="@+id/painForm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/AddExerciseString" />
->>>>>>> main
 
         <Space
             android:layout_width="match_parent"
@@ -83,18 +48,9 @@
             android:minHeight="25dp" />
 
         <Button
-<<<<<<< HEAD
             android:id="@+id/ViewAnalysis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ViewAnalysis" />
     </LinearLayout>
-=======
-            android:id="@+id/painForm2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ViewAnalysisString" />
-    </LinearLayout>
-
->>>>>>> main
 </RelativeLayout>
