@@ -34,7 +34,7 @@
             android:minHeight="100dp" />
 
         <Button
-            android:id="@+id/PainForm"
+            android:id="@+id/PainFormBttn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/PainForm" />
