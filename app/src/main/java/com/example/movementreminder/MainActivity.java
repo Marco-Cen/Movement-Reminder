@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //-- Sets title of application in Action Menu (Bar at very top) --
-        setTitle("Welcome");
+        setTitle("Hope You're Doing Great Maddie!");
 
 
         //-- Linking Buttons to redirect to other pages --
