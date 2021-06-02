@@ -17,6 +17,8 @@
             android:id="@+id/MakerMovePic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/makermove" />
     </LinearLayout>
 
@@ -26,8 +28,13 @@
         android:orientation="vertical"
         android:translationY="300dp">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp" />
+
         <Button
-            android:id="@+id/PainForm"
+            android:id="@+id/PainFormBttn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/PainForm" />
