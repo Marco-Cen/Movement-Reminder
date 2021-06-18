@@ -12,6 +12,8 @@
     <string name="notifAmountTxt">Notification Amount:</string>
     <string name="StartTxt">Start:</string>
     <string name="EndText">End:</string>
+    <string name="skipExerciseTxt">SKIP EXERCISE</string>
+    <string name="timeRemainTxt">TIME REMAINING</string>
 
 
 </resources>
