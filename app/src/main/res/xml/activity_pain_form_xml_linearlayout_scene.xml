@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_marginTop="224dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="108dp"
+            android:layout_marginStart="108dp"
+            android:id="@+id/imageButton4" />
+        <Constraint
+            motion:layout_editor_absoluteY="32dp"
+            motion:layout_editor_absoluteX="68dp"
+            android:id="@+id/linearLayout" />
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="236dp"
+            android:id="@+id/imageButton4"
+            motion:layout_constraintStart_toEndOf="@+id/submitbutton9" />
+        <Constraint
+            android:layout_width="157dp"
+            android:layout_height="31dp"
+            motion:layout_editor_absoluteY="329dp"
+            motion:layout_editor_absoluteX="16dp"
+            android:id="@+id/submittextView"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="226dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="180dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="372dp"
+            android:id="@+id/seekBar2"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+    </ConstraintSet>
+</MotionScene>

@@ -6,9 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".PainFormActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pain Form pAge (TeSTING)" />
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutDescription="@xml/activity_pain_form_xml_framelayout_scene"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/Submitbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/submitbutton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="409dp"
+            android:layout_height="617dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="28dp"
+            android:orientation="vertical"
+            app:layoutDescription="@xml/activity_pain_form_xml_linearlayout_scene"
+            app:layout_constraintBottom_toTopOf="@+id/submitbutton14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/sunmitbutton8"
+                android:layout_width="246dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:text="@string/submitbutton8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/submitbutton9"
+                android:layout_width="250dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="180dp"
+                android:text="@string/submitbutton9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/submitbutton10"
+                android:layout_width="246dp"
+                android:layout_height="59dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="112dp"
+                android:text="@string/submitbutton10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="124dp"
+                android:layout_marginTop="236dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="226dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="372dp"
+                android:layout_marginEnd="180dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/submittextView"
+                android:layout_width="157dp"
+                android:layout_height="31dp"
+                android:text="@string/submittextview"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="329dp" />
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        <Button
+            android:id="@+id/submitbutton12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submitbutton12"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="667dp" />
+
+        <Button
+            android:id="@+id/submitbutton14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submitbutton14"
+            tools:layout_editor_absoluteX="289dp"
+            tools:layout_editor_absoluteY="661dp" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+

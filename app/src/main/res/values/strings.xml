@@ -5,4 +5,21 @@
     <string name="ViewAnalysis">View Analysis of Joint Pains Overtime</string>
     <string name="Settings">settings</string>
     <string name="NotificationsOverall">notificationsOverall</string>
+    <string name="submitwhichjoint">"Which Joint ? "</string>
+    <string name="submitbutton">"Which Joint ? "</string>
+    <string name="submitbutton2">"Lower Back "</string>
+    <string name="submitbutton3">"The elbow and lower arm "</string>
+    <string name="submitbutton4">Lower back</string>
+    <string name="submitbutton5">"Knees and Legs "</string>
+    <string name="submitbutton7">Shoulder and Elbow</string>
+    <string name="submitbutton8">Lower back</string>
+    <string name="submitbutton9">Elbow and Shoulder</string>
+    <string name="submitbutton10">"Knees and Legs "</string>
+    <string name="submittext">"Rate your pain "</string>
+    <string name="submitrateyourpain">Rate your pain</string>
+    <string name="SubmitRateyourpain">Rate your pain</string>
+    <string name="submittextview">"Rate my pain "</string>
+    <string name="submitbutton13">Back</string>
+    <string name="submitbutton12">"Back "</string>
+    <string name="submitbutton14">Next</string>
 </resources>
