@@ -5,7 +5,7 @@
     <string name="ViewAnalysis">View Analysis of Joint Pains Overtime</string>
 
     <string name="Settings">settings</string>
-<<<<<<< HEAD
+
     <string name="NotificationsOverall">notificationsOverall</string>
     <string name="submitwhichjoint">"Which Joint ? "</string>
     <string name="submitbutton">"Which Joint ? "</string>
@@ -24,7 +24,7 @@
     <string name="submitbutton13">Back</string>
     <string name="submitbutton12">"Back "</string>
     <string name="submitbutton14">Next</string>
-=======
+
     <string name="notifOverallTxt">Notifications Overall:</string>
     <string name="randoNotifIntervBrackTxt">(From 7am - 11pm : 5 Random Notifications)</string>
     <string name="randoNotifIntervTxt">Random Notification Interval:</string>
@@ -36,5 +36,5 @@
     <string name="timeRemainTxt">TIME REMAINING</string>
 
 
->>>>>>> main
+
 </resources>
