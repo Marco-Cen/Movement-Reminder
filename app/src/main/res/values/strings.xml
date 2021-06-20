@@ -14,6 +14,9 @@
     <string name="EndText">End:</string>
     <string name="skipExerciseTxt">SKIP EXERCISE</string>
     <string name="timeRemainTxt">TIME REMAINING</string>
+    <string name="starRateTxt">How Helpful was the Exercise?</string>
+    <string name="submitTxt">Submit</string>
+    <string name="skipRatingTxt">Skip Rating</string>
 
 
 </resources>

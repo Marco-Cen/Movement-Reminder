@@ -2,6 +2,7 @@ package com.example.movementreminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -94,7 +95,7 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
                 else{ //If timer not running, START THE TIMER
 
                     //Start the timer
-                    startTimer();
+                    startTimer(); //Includes on finish as well
 
                     mTimerRunning = true;
                     updateButtons();
@@ -130,10 +131,17 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
                 //Updates Countdown text
                 updateCountDownText();
             }
+
+            //Once countdown timer finishes!!
             @Override
-            public void onFinish() {  //Once countdown timer finishes
+            public void onFinish() {
                 mTimerRunning = false;
                 updateButtons();
+
+                //Popup of star rating
+                Toast.makeText(ExerciseSelectedActivity.this, "Nice! -- Exercise Timer Finished! -- WhooHoo!", Toast.LENGTH_SHORT).show();
+                Intent starPopupIntent = new Intent(getApplicationContext(), starRatingPopupActivity.class);
+                startActivity(starPopupIntent);
             }
         }.start();  //ALlows for immediately start timer
     }
