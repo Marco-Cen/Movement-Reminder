@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //-- Sets title of application in Action Menu (Bar at very top) --
-        setTitle("Hope You're Doing Great Maddie!");
+        setTitle("Hi Maddie!");
 
 
         //-- Linking Buttons to redirect to other pages --
@@ -34,6 +34,29 @@ public class MainActivity extends AppCompatActivity {
            }
         });
 
+
+        //-- TEST: Linking Button to redirect to page
+        Button bttnExerciseSelected;
+        bttnExerciseSelected = findViewById((R.id.exerciseSelectedBttn));
+        bttnExerciseSelected.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Functionality to open/redirect to (OTHER) PAGE
+                testExerciseSelectedPage();
+            }
+        });
+
+    }
+
+    //-- Functionality to redirect to pain form page --
+    public void openPainFormPage(){
+        Intent intent = new Intent(this, PainFormActivity.class);
+        startActivity(intent);
+    }
+    //-- Functionality to redirect to Exercise Selected page (TEST) --
+    public void testExerciseSelectedPage(){
+        Intent intent = new Intent(this, ExerciseSelectedActivity.class);
+        startActivity(intent);
     }
 
 
@@ -60,14 +83,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     ////////
-
-
-    //-- Functionality to redirect to pain form page --
-    public void openPainFormPage(){
-        Intent intent = new Intent(this, PainFormActivity.class);
-        startActivity(intent);
-    }
-
 
 
 

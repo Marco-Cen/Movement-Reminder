@@ -3,6 +3,20 @@
     <string name="PainForm">Pain Form</string>
     <string name="AddExercise">Add Exercise</string>
     <string name="ViewAnalysis">View Analysis of Joint Pains Overtime</string>
+
     <string name="Settings">settings</string>
-    <string name="NotificationsOverall">notificationsOverall</string>
+    <string name="notifOverallTxt">Notifications Overall:</string>
+    <string name="randoNotifIntervBrackTxt">(From 7am - 11pm : 5 Random Notifications)</string>
+    <string name="randoNotifIntervTxt">Random Notification Interval:</string>
+    <string name="NotifIntervalTxt">Notification Interval:</string>
+    <string name="notifAmountTxt">Notification Amount:</string>
+    <string name="StartTxt">Start:</string>
+    <string name="EndText">End:</string>
+    <string name="skipExerciseTxt">SKIP EXERCISE</string>
+    <string name="timeRemainTxt">TIME REMAINING</string>
+    <string name="starRateTxt">How Helpful was the Exercise?</string>
+    <string name="submitTxt">Submit</string>
+    <string name="skipRatingTxt">Skip Rating</string>
+
+
 </resources>

@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovementReminder">
-        <activity android:name=".PainFormActivity"></activity>
+        <activity android:name=".AnalysisActivity2"></activity>
+        <activity
+            android:name=".starRatingPopupActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <activity android:name=".ExerciseSelectedActivity" />
+        <activity android:name=".PainFormActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
