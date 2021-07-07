@@ -12,12 +12,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import io.realm.Realm;
+import io.realm.mongodb.App;
+import io.realm.mongodb.AppConfiguration;
+
 public class MainActivity extends AppCompatActivity {
+
+    String MongoDBRealmAppID = "makermove_movementreminder-uyrap"; //Provided App ID in MongoDB Realm (Downloaded MongoDB Realm on GitHub Repo)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //MongoDB REALM Setup
+        Realm.init(this); //Initializes Realm [MUST be placed whereever application first opens: landing page]
+        App mongoRealmAppSync = new App(new AppConfiguration.Builder(MongoDBRealmAppID).build()); //This creates instance of REALM application in Android Studio (Linked with ONLINE realm created)
+
+
+
 
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Hi Maddie!");

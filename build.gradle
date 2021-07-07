@@ -7,6 +7,10 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
 
+        //This is INTEGRATING/CONFIGURING MongoDB REALM with Android Studio! (Backend Dev Database)
+        classpath "io.realm:realm-gradle-plugin:10.0.0-BETA.8" //Make plugin (Fetch plugin applied)
+
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
