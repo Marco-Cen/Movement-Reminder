@@ -34,7 +34,7 @@
     <string name="EndText">End:</string>
     <string name="skipExerciseTxt">SKIP EXERCISE</string>
     <string name="timeRemainTxt">TIME REMAINING</string>
-
+    <string name="submitbutton15">Back</string>
 
 
 </resources>

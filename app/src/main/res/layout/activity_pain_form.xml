@@ -42,15 +42,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <Button
-                android:id="@+id/sunmitbutton8"
-                android:layout_width="246dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="64dp"
-                android:text="@string/submitbutton8"
+                android:id="@+id/submitbutton15"
+                android:layout_width="254dp"
+                android:layout_height="40dp"
+                android:text="@string/submitbutton15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.177"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                tools:layout_editor_absoluteY="67dp" />
 
             <Button
                 android:id="@+id/submitbutton9"
@@ -62,7 +63,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <Button
+
                 android:id="@+id/submitbutton10"
                 android:layout_width="246dp"
                 android:layout_height="59dp"
@@ -98,6 +101,7 @@
                 android:text="@string/submittextview"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="329dp" />
+
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
 
