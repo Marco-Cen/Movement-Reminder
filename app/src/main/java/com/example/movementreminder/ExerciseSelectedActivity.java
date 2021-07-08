@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +42,32 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
     private long mTimeLeftInMillis = mStartTimeInMillis;
     private long mEndTime; //FIXES issues of slight delay (Loss of seconds) when change orientation while countdown timer running
 
+
+///////////////
+    //------ TEMPORARY UNTIL PAIN FORM PAGE UI FINISHED ------
+    TextView tvProgressLabel;
+
+    //(SLIDER) on click
+    SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            // updated continuously as the user slides the thumb
+            tvProgressLabel.setText("Progress: " + progress);
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            // called when the user first touches the SeekBar
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            // called after the user finishes moving the SeekBar
+        }
+    };
+///////////////
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +75,31 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
 
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Exercise Selected!");
+
+
+///////////////
+        //------ TEMPORARY UNTIL PAIN FORM PAGE UI FINISHED ------
+        //get the spinner from the xml.
+                Spinner dropdown = findViewById(R.id.spinner1);
+        //create a list of items for the spinner.
+                String[] items = new String[]{"Arm", "LowerBack", "UpperBack"};
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        //set the spinners adapter to the previously created one.
+                dropdown.setAdapter(adapter);
+
+        // (SLIDER) set a change listener on the SeekBar
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
+
+        int painLevelInput = seekBar.getProgress();
+        tvProgressLabel = findViewById(R.id.textView);
+        tvProgressLabel.setText("Rate the Pain You Feel: " + painLevelInput + "%");
+///////////////
+
+
+
 
 
 
