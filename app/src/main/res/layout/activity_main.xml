@@ -73,6 +73,12 @@
             android:layout_height="wrap_content"
             android:text="Test: Exercise Selected Page" />
 
+        <Button
+            android:id="@+id/CRUDTestPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEST: CRUD User Input Page" />
+
     </LinearLayout>
 
 </RelativeLayout>

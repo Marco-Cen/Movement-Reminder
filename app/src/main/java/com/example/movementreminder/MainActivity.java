@@ -13,25 +13,19 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
-    String MongoDBRealmAppID = "makermove_movementreminder-uyrap"; //Provided App ID in MongoDB Realm (Downloaded MongoDB Realm on GitHub Repo)
+    //For Realm Sync
+//    String MongoDBRealmAppID = "makermove_movementreminder-uyrap"; //Provided App ID in MongoDB Realm (Downloaded MongoDB Realm on GitHub Repo)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        //MongoDB REALM Setup
-        Realm.init(this); //Initializes Realm [MUST be placed whereever application first opens: landing page]
-        App mongoRealmAppSync = new App(new AppConfiguration.Builder(MongoDBRealmAppID).build()); //This creates instance of REALM application in Android Studio (Linked with ONLINE realm created)
-
-
-
 
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Hi Maddie!");
@@ -49,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //-- TEST: Linking Button to redirect to page
+
+        //////////// [START]  TEST: Linking Button to redirect to page
         Button bttnExerciseSelected;
         bttnExerciseSelected = findViewById((R.id.exerciseSelectedBttn));
         bttnExerciseSelected.setOnClickListener(new View.OnClickListener(){
@@ -60,6 +55,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button bttnTestCRUD; //for list of exercises popup and pain form input
+        bttnTestCRUD = (Button) findViewById((R.id.CRUDTestPage));
+        bttnTestCRUD.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Functionality to open/redirect to (OTHER) PAGE
+                testCRUD();
+            }
+        });
+        //////////// [End]
+
     }
 
     //-- Functionality to redirect to pain form page --
@@ -67,11 +73,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PainFormActivity.class);
         startActivity(intent);
     }
+
+    //////////// [START]  TEST: Linking Button to redirect to page
     //-- Functionality to redirect to Exercise Selected page (TEST) --
     public void testExerciseSelectedPage(){
         Intent intent = new Intent(this, ExerciseSelectedActivity.class);
         startActivity(intent);
     }
+    //-- Functionality to redirect to Testing User Input CRUD page (TEST) --
+    public void testCRUD(){
+        Intent intent = new Intent(this, TestingDatabase.class); //TestingDatabase, testingforuserinput
+        startActivity(intent);
+    }
+    //////////// [End]
 
 
     ////-- Linking Settings Button from res > menu --

@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RatingBar;
 
 public class starRatingPopupActivity extends Activity { //changed extends 'AppCompatActivity'
 
@@ -23,6 +24,11 @@ public class starRatingPopupActivity extends Activity { //changed extends 'AppCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_star_rating_popup);
 
+        //-- Ratings Bar Input (5 stars: Returns Float value)
+        RatingBar RateBarInput = (RatingBar) findViewById(R.id.ratingBar);
+        Float userRating = RateBarInput.getRating(); // get rating number from a rating bar
+
+
         //-- Buttons on popup --
         bttn_skipRating = (Button) findViewById(R.id.skipRatingBttn);
         bttn_skipRating.setOnClickListener(new View.OnClickListener(){
@@ -30,6 +36,7 @@ public class starRatingPopupActivity extends Activity { //changed extends 'AppCo
             public void onClick(View v){
                 //Need to submit into database
                 //(Input user data database here)
+
 
                 //Functionality to open/redirect to List of Exercises PAGE
                 Intent intent = new Intent(starRatingPopupActivity.this, MainActivity.class); //List of Exercises Page
@@ -42,6 +49,9 @@ public class starRatingPopupActivity extends Activity { //changed extends 'AppCo
             public void onClick(View v){
                 //Need to submit into database
                 //(Input user data database here)
+// userRating
+
+
 
                 //Functionality to open/redirect to List of Exercises PAGE
                 Intent intent = new Intent(starRatingPopupActivity.this, MainActivity.class); //List of Exercises Page
