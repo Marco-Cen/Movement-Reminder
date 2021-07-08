@@ -36,9 +36,9 @@ public class SettingDatabaseExerciseLayout extends RecyclerView.Adapter<SettingD
     @Override
     public void onBindViewHolder(@NonNull SettingDatabaseExerciseLayout.ViewHolder holder, int position) {
         ExerciseDataModel modal = exerciseDataModelArrayList.get(position);
-        holder.exerciseNameField.setText(modal.getExerciseName());
-        holder.exerciseDurationField.setText(modal.getExerciseTimeRequired());
-        holder.exerciseDescripField.setText(modal.getExerciseNote());
+        holder.exerciseNameField.setText("Exercise Name: " + modal.getExerciseName());
+        holder.exerciseDurationField.setText("Duration: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minutes");
+        holder.exerciseDescripField.setText("Note: " + modal.getExerciseNote());
     }
 
     @Override
@@ -46,6 +46,8 @@ public class SettingDatabaseExerciseLayout extends RecyclerView.Adapter<SettingD
         return exerciseDataModelArrayList.size();
     }
 
+
+    //-- HELPER CLASS --
     public class ViewHolder extends RecyclerView.ViewHolder {
         // creating variables for our text views.
         private TextView exerciseNameField, exerciseDurationField, exerciseDescripField;

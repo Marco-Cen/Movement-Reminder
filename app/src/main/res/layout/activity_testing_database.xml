@@ -52,23 +52,45 @@
             android:minWidth="50dp" />
 
         <Button
-            android:id="@+id/ViewDatabaseBttn"
+            android:id="@+id/submitBttnAddExercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:text="View Database" />
+            android:text="SUBMIT" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="20dp" />
+
+        <Button
+            android:id="@+id/ViewExerciseDatabaseBttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="View Database (Exercises)"
+            android:textAllCaps="false" />
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minWidth="50dp" />
+            android:minHeight="20dp" />
 
         <Button
-            android:id="@+id/submitBttnAddExercise"
+            android:id="@+id/ViewPainDatabaseBttn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SUBMIT" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="View Database (Pain)" />
     </LinearLayout>
 
 </LinearLayout>

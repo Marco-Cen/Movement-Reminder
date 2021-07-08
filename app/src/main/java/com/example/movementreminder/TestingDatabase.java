@@ -37,13 +37,16 @@ public class TestingDatabase extends AppCompatActivity {
 
         // BACK BUTTON
         Button backBttn = findViewById(R.id.backBttnAddExercise);
-//        backBttn.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {    }
-//        }
+        backBttn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(TestingDatabase.this, MainActivity.class); //TO BE REPLACED AFTER!
+            startActivity(i);
+        }
+        });
 
         // VIEW DATABASE BUTTON
-        Button viewDbBttn = findViewById(R.id.ViewDatabaseBttn); //for list of exercises popup and pain form input
+        Button viewDbBttn = findViewById(R.id.ViewExerciseDatabaseBttn); //for list of exercises popup and pain form input
         viewDbBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
