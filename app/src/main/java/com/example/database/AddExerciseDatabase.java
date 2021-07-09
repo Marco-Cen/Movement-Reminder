@@ -1,4 +1,4 @@
-package com.example.Database;
+package com.example.database;
 
 import androidx.appcompat.app.AppCompatActivity;
 

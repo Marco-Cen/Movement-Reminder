@@ -1,4 +1,4 @@
-package com.example.Database;
+package com.example.database;
 
 /* NOTE:
 - This class represents the DATA MODEL used for the backend implementation
@@ -9,7 +9,10 @@ of this app (Database) with relation to 'MongoDB Realm'
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
+/* NOTE:
+- This class is a DATA MODEL OBJECT for her PAIN x Joint List
 
+ */
 public class PainDataModel extends RealmObject {
 
     //-- Instance Variables --

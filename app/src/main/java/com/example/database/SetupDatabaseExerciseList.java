@@ -1,4 +1,4 @@
-package com.example.Database;
+package com.example.database;
 
 import android.content.Context;
 import android.content.Intent;

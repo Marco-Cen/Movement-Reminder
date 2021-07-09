@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.Database.ViewDatabaseExercises">
+    tools:context="com.example.database.ViewDatabaseExercises">
 
     <!--recycler view for displaying list of exercises-->
     <androidx.recyclerview.widget.RecyclerView

@@ -25,6 +25,7 @@
 //
 // /* NOTES:
 //  - WORKING: INSERT, DELETE, UPDATE (But read not working? unsure why)
+//  - File used just for Experimentaiton!
 //
 // */
 //public class testingforuserinput extends AppCompatActivity implements View.OnClickListener {
@@ -34,12 +35,6 @@
 //    private TextView output;
 //
 //
-//    ///////[Start PAIN FORM]
-//    //------ TEMPORARY UNTIL PAIN FORM PAGE UI FINISHED ------
-//    TextView tvProgressLabel;
-//    MongoDatabase mongoDatabase;
-//    MongoClient mongoClient;
-//    ///////[End PAIN FORM]
 //
 //
 //    @Override
@@ -64,52 +59,10 @@
 //
 //
 //
-////        ///////[Start PAIN FORM]
-////        //------ TEMPORARY UNTIL PAIN FORM PAGE UI FINISHED (No functionality yet) ------
-////        //get the spinner from the xml.
-////        Spinner dropdown = findViewById(R.id.spinner1);
-////        //create a list of items for the spinner.
-////        String[] items = new String[]{"Arm", "LowerBack", "UpperBack"};
-////        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-////        //There are multiple variations of this, but this is the basic variant.
-////        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-////        //set the spinners adapter to the previously created one.
-////        dropdown.setAdapter(adapter);
-////
-////        //// (SLIDER) set a change listener on the SeekBar
-////        SeekBar seekBar = findViewById(R.id.seekBar);
-////        seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
-////
-////        int painLevelInput = seekBar.getProgress();
-////        tvProgressLabel = findViewById(R.id.textView);
-////        tvProgressLabel.setText("Rate the Pain You Feel: " + painLevelInput + "%");
-////        ///////[End PAIN FORM]
 //
 //
 //    }
 //
-/////////[Start PAIN FORM]
-//    //-- Helper Function --
-//    //(SLIDER) on click [PAIN FORM PAGE]
-//    SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
-//
-//        @Override
-//        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//            // updated continuously as the user slides the thumb
-//            tvProgressLabel.setText("Progress: " + progress);
-//        }
-//
-//        @Override
-//        public void onStartTrackingTouch(SeekBar seekBar) {
-//            // called when the user first touches the SeekBar
-//        }
-//
-//        @Override
-//        public void onStopTrackingTouch(SeekBar seekBar) {
-//            // called after the user finishes moving the SeekBar
-//        }
-//    };
-/////////[End PAIN FORM]
 //
 //
 //

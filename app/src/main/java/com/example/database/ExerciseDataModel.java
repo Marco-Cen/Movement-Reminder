@@ -1,4 +1,4 @@
-package com.example.Database;
+package com.example.database;
 
 /* NOTE:
 - This class represents the DATA MODEL used for the backend implementation
@@ -9,6 +9,10 @@ of this app (Database) with relation to 'MongoDB Realm'
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
+/* NOTE:
+- This class is a DATA MODEL OBJECT for Exercise List
+
+ */
 public class ExerciseDataModel extends RealmObject {
 
     //-- Instance Variables --
@@ -24,10 +28,8 @@ public class ExerciseDataModel extends RealmObject {
     float exerciseRating; //5 star rating user can choose
 
 
-
     //-- creating an empty constructor --
     public ExerciseDataModel() {    }
-
 
 
     //-- Getters/Setters --

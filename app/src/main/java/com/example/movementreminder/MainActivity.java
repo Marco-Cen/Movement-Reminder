@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.Database.AddExerciseDatabase;
-import com.example.Database.ViewDatabaseExercises;
+import com.example.database.AddExerciseDatabase;
+import com.example.database.ViewDatabaseExercises;
 
 public class MainActivity extends AppCompatActivity {
 

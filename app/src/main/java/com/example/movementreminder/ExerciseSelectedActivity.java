@@ -36,6 +36,7 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
     //-- Instance Variables for Countdown Timer --
     private EditText mEditTextInput;
     private TextView mTextViewCountDown;
+    private Button skipExerciseBttn;
     private Button mButtonSet; //User input set time (minutes) bttn
     private Button mButtonStartPause; //Start/Pause bttn
     private Button mButtonReset; //Reset bttn
@@ -54,6 +55,15 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Exercise Selected!");
 
+        // "Skip Exercise" BUTTON
+        skipExerciseBttn = findViewById(R.id.skipExerciseBttn);
+        skipExerciseBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(ExerciseSelectedActivity.this, MainActivity.class); //TODO
+                startActivity(i);
+            }
+        });
 
 
         //-- Countdown timer --

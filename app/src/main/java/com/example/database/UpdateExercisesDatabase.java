@@ -1,4 +1,4 @@
-package com.example.Database;
+package com.example.database;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,7 +76,7 @@ public class UpdateExercisesDatabase extends AppCompatActivity {
                 // on below line we are calling a method to delete course.
                 deleteCourse(id);
                 // after deleting we are displaying a toast message as course deleted.
-                Toast.makeText(UpdateExercisesDatabase.this, "You deleted exercise [ID: " + String.valueOf(id) + " | " + exerciseName +" ] from the database. \n Hope ya meant to do that!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateExercisesDatabase.this, "DELETED From Database: \n \t \t ID: [" + String.valueOf(id) + "] \n \t \t Exercise Name: [" + exerciseName +"] \n \n Hope ya meant to do that!", Toast.LENGTH_LONG).show();
                 // after that we are opening a new activity via an intent.
                 Intent i = new Intent(UpdateExercisesDatabase.this, ViewDatabaseExercises.class);
                 startActivity(i);
@@ -96,11 +96,11 @@ public class UpdateExercisesDatabase extends AppCompatActivity {
                 if(!TextUtils.isEmpty(exerciseDurationString)) { exerciseDuration = Integer.parseInt(exerciseDurationString); } //If Duration is not empty, Duration convert string to int
                 exerciseDescription = exerciseDescripField.getText().toString();
 
-                // validating the text fields if empty or not.
+                // Input Validation (validating the text fields if empty or not)
                 if (TextUtils.isEmpty(exerciseName)) {
-                    exerciseNameField.setError("Please enter Exercise Name");
+                    exerciseNameField.setError("Woah! You gotta enter a NAME for your Exercise!");
                 } else if (TextUtils.isEmpty(exerciseDurationString)) {
-                    exerciseDurationField.setError("Please enter Exercise Duration");
+                    exerciseDurationField.setError("Enter the Exercise's DURATION in Minutes");
                 } else { //UPDATE
                     // on below line we are getting data from our modal where
                     // the id of the course equals to which we passed previously.
@@ -109,7 +109,7 @@ public class UpdateExercisesDatabase extends AppCompatActivity {
                 }
 
                 // on below line we are displaying a toast message when course is updated.
-                Toast.makeText(UpdateExercisesDatabase.this, "Ya Updated [" + exerciseName + "]!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateExercisesDatabase.this, "[" + exerciseName + "] was UPDATED :)", Toast.LENGTH_SHORT).show();
 
                 // on below line we are opening our activity for read course activity to view updated course.
                 Intent i = new Intent(UpdateExercisesDatabase.this, ViewDatabaseExercises.class);
