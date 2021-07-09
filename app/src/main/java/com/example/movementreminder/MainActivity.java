@@ -15,6 +15,14 @@ import android.widget.Toast;
 import com.example.database.AddExerciseDatabase;
 import com.example.database.ViewDatabaseExercises;
 
+
+/* NOTE:
+- TODO: (Realm Sync: syncs with cloud and not just locally on her device)
+- TODO: (Build Error due ot Realm setup integration with app: Cause: kotlin.KotlinNullPointerException -- no fix??)
+
+     Error: org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugJavaWithJavac'
+
+ */
 public class MainActivity extends AppCompatActivity {
 
     //For Realm Sync
