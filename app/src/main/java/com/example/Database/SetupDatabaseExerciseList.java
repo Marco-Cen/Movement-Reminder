@@ -11,13 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.movementreminder.R;
-import com.example.movementreminder.UpdateExercisesDatabase;
 
 import java.util.List;
 
 /* NOTES:
- - CourseRVAdapter
-
+- This class is what we set/see in showing database exercises list
+ - CourseRVAdapter (ADAPTER)
  */
 public class SetupDatabaseExerciseList extends RecyclerView.Adapter<SetupDatabaseExerciseList.ViewHolder> {
 
@@ -42,9 +41,9 @@ public class SetupDatabaseExerciseList extends RecyclerView.Adapter<SetupDatabas
     @Override
     public void onBindViewHolder(@NonNull SetupDatabaseExerciseList.ViewHolder holder, int position) {
         ExerciseDataModel modal = exerciseDataModelArrayList.get(position);
-        holder.exerciseNameField.setText("Exercise Name: " + modal.getExerciseName());
-        holder.exerciseDurationField.setText("Duration: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
-        holder.exerciseDescripField.setText("Note: " + modal.getExerciseNote());
+        holder.exerciseNameField.setText("[Exercise Name]: " + modal.getExerciseName());
+        holder.exerciseDurationField.setText("[Duration]: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
+        holder.exerciseDescripField.setText("[Note]: " + modal.getExerciseNote());
 
         //-- For UPDATE function in CRUD [adding on click listener for item of recycler view] --
         holder.itemView.setOnClickListener(new View.OnClickListener() {

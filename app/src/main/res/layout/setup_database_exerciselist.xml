@@ -30,6 +30,16 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
+            <!--text view for our course duration-->
+            <TextView
+                android:id="@+id/exerciseDuration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="Duration"
+                android:textColor="@color/black" />
+
             <!--text view for our course tracks-->
             <TextView
                 android:id="@+id/idTVCourseTracks"
@@ -40,15 +50,7 @@
                 android:text="(Unused atm)"
                 android:textColor="@color/black" />
 
-            <!--text view for our course duration-->
-            <TextView
-                android:id="@+id/exerciseDuration"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="3dp"
-                android:text="Duration"
-                android:textColor="@color/black" />
+
 
         </LinearLayout>
 

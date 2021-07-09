@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.Database.AddExerciseDatabase;
+import com.example.Database.ViewDatabaseExercises;
+
 public class MainActivity extends AppCompatActivity {
 
     //For Realm Sync
@@ -26,17 +29,32 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Hi Maddie!");
 
 
+        // "VIEW DATABASE: Exercises" BUTTON
+        Button viewDbBttn = findViewById(R.id.ViewExerciseDatabaseBttn); //for list of exercises popup and pain form input
+        viewDbBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(MainActivity.this, ViewDatabaseExercises.class);
+                startActivity(i);
+            }
+        });
+
+
+        // "VIEW DATABASE: Pain" BUTTON
+
+
+
         //-- Linking Buttons to redirect to other pages --
         Button bttnPainForm;
         bttnPainForm = findViewById((R.id.PainFormBttn));
         bttnPainForm.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View v){
-               //Functionality to open/redirect to (OTHER) PAGE
-               openPainFormPage(); //Pain Form Page
+               //Functionality to open/redirect to (PAIN FORM) PAGE
+               Intent intent = new Intent(MainActivity.this, PainFormActivity.class);
+               startActivity(intent);
            }
         });
-
 
 
         //////////// [START]  TEST: Linking Button to redirect to page
@@ -45,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
         bttnExerciseSelected.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Functionality to open/redirect to (OTHER) PAGE
-                testExerciseSelectedPage();
+                //Functionality to open/redirect to (ExerciseSelected) PAGE
+                Intent intent = new Intent(MainActivity.this, ExerciseSelectedActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -55,35 +74,18 @@ public class MainActivity extends AppCompatActivity {
         bttnTestCRUD.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Functionality to open/redirect to (OTHER) PAGE
-                testCRUD();
+                //Functionality to open/redirect to (AddExercise) PAGE
+                Intent intent = new Intent(MainActivity.this, AddExerciseDatabase.class); //TestingDatabase, testingforuserinput
+                startActivity(intent);
             }
         });
         //////////// [End]
 
     }
 
-    //-- Functionality to redirect to pain form page --
-    public void openPainFormPage(){
-        Intent intent = new Intent(this, PainFormActivity.class);
-        startActivity(intent);
-    }
-
-    //////////// [START]  TEST: Linking Button to redirect to page
-    //-- Functionality to redirect to Exercise Selected page (TEST) --
-    public void testExerciseSelectedPage(){
-        Intent intent = new Intent(this, ExerciseSelectedActivity.class);
-        startActivity(intent);
-    }
-    //-- Functionality to redirect to Testing User Input CRUD page (TEST) --
-    public void testCRUD(){
-        Intent intent = new Intent(this, AddExerciseDatabase.class); //TestingDatabase, testingforuserinput
-        startActivity(intent);
-    }
-    //////////// [End]
 
 
-    ////-- Linking Settings Button from res > menu --
+    ////-- Linking Settings Button from res > menu -- [SETTINGS]
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

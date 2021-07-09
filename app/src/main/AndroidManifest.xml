@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovementReminder">
-        <activity android:name=".UpdateExercisesDatabase"></activity>
+        <activity android:name="com.example.Database.UpdateExercisesDatabase"></activity>
         <activity android:name="com.example.Database.ViewDatabaseExercises" />
-        <activity android:name=".AddExerciseDatabase" />
-        <activity android:name=".testingforuserinput" />
+        <activity android:name="com.example.Database.AddExerciseDatabase" />
+<!--        <activity android:name=".testingforuserinput" />-->
         <activity android:name=".AnalysisActivity2" />
         <activity
             android:name=".starRatingPopupActivity"

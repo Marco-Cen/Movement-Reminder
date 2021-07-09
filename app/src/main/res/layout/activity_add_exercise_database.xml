@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddExerciseDatabase">
+    tools:context="com.example.Database.AddExerciseDatabase">
 
     <!--Edit text to enter Exercise name to add-->
     <EditText
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="View Database (Exercises)"
+            android:text="View Database: Exercises"
             android:textAllCaps="false" />
 
         <Space
@@ -90,7 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="View Database (Pain)" />
+            android:text="View Database: Pain"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </LinearLayout>

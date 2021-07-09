@@ -1,4 +1,4 @@
-package com.example.movementreminder;
+package com.example.Database;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.Database.ExerciseDataModel;
-import com.example.Database.ViewDatabaseExercises;
+import com.example.movementreminder.MainActivity;
+import com.example.movementreminder.R;
 
 import io.realm.Realm;
 

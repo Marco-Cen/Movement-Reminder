@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.movementreminder.MainActivity;
 import com.example.movementreminder.R;
 
 import java.util.ArrayList;
@@ -14,6 +18,8 @@ import java.util.List;
 import io.realm.Realm;
 
 /* NOTES
+- This dynamically shows whats in the database locally saved on device (Dynamically updates with user input)
+- Able to scroll if too long (Due to card views!)
 - ReadCoursesActivity
 
  */
@@ -40,6 +46,19 @@ public class ViewDatabaseExercises extends AppCompatActivity {
         // calling a method to load
         // our recycler view with data.
         prepareRecyclerView();
+
+
+
+        // 'BACK HOME' BUTTON
+        Button homeBttn = findViewById(R.id.homeBttn); //for list of exercises popup and pain form input
+        homeBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(ViewDatabaseExercises.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     private void prepareRecyclerView() {

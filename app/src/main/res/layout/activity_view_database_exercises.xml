@@ -11,6 +11,22 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/exerciseListInfo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:translationY="50dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/homeBttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back Home"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+    </LinearLayout>
 
 </RelativeLayout>
