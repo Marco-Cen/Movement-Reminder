@@ -18,6 +18,7 @@ import java.util.List;
 import io.realm.Realm;
 
 /* NOTES
+- 'READ' in CRUD
 - This dynamically shows whats in the database locally saved on device (Dynamically updates with user input)
 - Able to scroll if too long (Due to card views!)
 - ReadCoursesActivity

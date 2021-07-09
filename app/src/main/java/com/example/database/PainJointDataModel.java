@@ -13,7 +13,7 @@ import io.realm.annotations.PrimaryKey;
 - This class is a DATA MODEL OBJECT for her PAIN x Joint List
 
  */
-public class PainDataModel extends RealmObject {
+public class PainJointDataModel extends RealmObject {
 
     //-- Instance Variables --
     @PrimaryKey //This is to connect with MongoDB Realm (Adds Primary Key in ID: creating our variables and using primary key for our id)
@@ -24,7 +24,7 @@ public class PainDataModel extends RealmObject {
 
 
     //-- creating an empty constructor --
-    public PainDataModel() {    }
+    public PainJointDataModel() {    }
 
 
     //-- Getters/Setters --

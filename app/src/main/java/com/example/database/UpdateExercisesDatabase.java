@@ -1,7 +1,9 @@
 package com.example.database;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +17,7 @@ import com.example.movementreminder.R;
 import io.realm.Realm;
 
 /* NOTE:
+- 'Update' and 'Delete' in CRUD
 - This class allows user to EDIT or DELETE entry in database dynamically
 - similar to "AddExerciseDatabase"
 - UpdateCourseActivity
@@ -73,14 +76,40 @@ public class UpdateExercisesDatabase extends AppCompatActivity {
         deletebttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // on below line we are calling a method to delete course.
-                deleteCourse(id);
-                // after deleting we are displaying a toast message as course deleted.
-                Toast.makeText(UpdateExercisesDatabase.this, "DELETED From Database: \n \t \t ID: [" + String.valueOf(id) + "] \n \t \t Exercise Name: [" + exerciseName +"] \n \n Hope ya meant to do that!", Toast.LENGTH_LONG).show();
-                // after that we are opening a new activity via an intent.
-                Intent i = new Intent(UpdateExercisesDatabase.this, ViewDatabaseExercises.class);
-                startActivity(i);
-                finish();
+
+                //-- Confirmation text before delete --
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateExercisesDatabase.this);
+                builder.setCancelable(true);
+                builder.setTitle("DELETE CONFIRMATION");
+                builder.setMessage("You sure you wanna DELETE this entry from the database? \n \t \t ID: [" + String.valueOf(id) + "] \n \t \t Exercise Name: [" + exerciseName +"]");
+
+                // 'CONFIRM' selected
+                builder.setPositiveButton("Confirm",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            // Calling a Helper function/method to delete
+                            deleteCourse(id);
+                            // after deleting we are displaying a toast message as course deleted.
+                            Toast.makeText(UpdateExercisesDatabase.this, "DELETED From Database: \n \t \t ID: [" + String.valueOf(id) + "] \n \t \t Exercise Name: [" + exerciseName +"] \n \n Hope ya meant to do that!", Toast.LENGTH_LONG).show();
+                            // after that we are opening a new activity via an intent.
+                            Intent i = new Intent(UpdateExercisesDatabase.this, ViewDatabaseExercises.class);
+                            startActivity(i);
+                            finish();
+
+                        }
+                    });
+
+                // 'CANCEL' selected
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

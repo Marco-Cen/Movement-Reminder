@@ -16,6 +16,10 @@ import com.example.movementreminder.R;
 import io.realm.Realm;
 
 
+/* NOTE:
+- 'Create' in CRUD
+
+ */
 public class AddExerciseDatabase extends AppCompatActivity {
 
     //-- Instance Variables --
