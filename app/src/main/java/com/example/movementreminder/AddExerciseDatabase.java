@@ -11,10 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.Database.ExerciseDataModel;
+import com.example.Database.ViewDatabaseExercises;
 
 import io.realm.Realm;
 
-public class TestingDatabase extends AppCompatActivity {
+
+public class AddExerciseDatabase extends AppCompatActivity {
 
     //-- Instance Variables --
     // For our edit text
@@ -27,7 +29,7 @@ public class TestingDatabase extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_testing_database);
+        setContentView(R.layout.activity_add_exercise_database);
 
         // initializing our edittext and buttons
         realm = Realm.getDefaultInstance();
@@ -40,7 +42,7 @@ public class TestingDatabase extends AppCompatActivity {
         backBttn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(TestingDatabase.this, MainActivity.class); //TO BE REPLACED AFTER!
+            Intent i = new Intent(AddExerciseDatabase.this, MainActivity.class); //TO BE REPLACED AFTER!
             startActivity(i);
         }
         });
@@ -50,7 +52,7 @@ public class TestingDatabase extends AppCompatActivity {
         viewDbBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(TestingDatabase.this, ViewDatabaseExercises.class);
+                Intent i = new Intent(AddExerciseDatabase.this, ViewDatabaseExercises.class);
                 startActivity(i);
             }
         });
@@ -62,11 +64,9 @@ public class TestingDatabase extends AppCompatActivity {
             public void onClick(View v) {
                 // getting data from edittext fields.
                 exerciseName = exerciseNameFieldInput.getText().toString();
-                exerciseDescription = exerciseDescriptionFieldInput.getText().toString();
                 exerciseDurationString = exerciseDurationFieldInput.getText().toString(); //Duration
-                if(!TextUtils.isEmpty(exerciseDurationString)) { //If Duration is not empty
-                    exerciseDuration = Integer.parseInt(exerciseDurationString); //Duration convert string to int
-                }
+                if(!TextUtils.isEmpty(exerciseDurationString)) { exerciseDuration = Integer.parseInt(exerciseDurationString); } //If Duration is not empty, Duration convert string to int
+                exerciseDescription = exerciseDescriptionFieldInput.getText().toString();
 
                 // Validating the text fields if empty or not.
                 if (TextUtils.isEmpty(exerciseName)) {
@@ -76,7 +76,7 @@ public class TestingDatabase extends AppCompatActivity {
                 } else {
                     // calling method to ADD data to Realm database..
                     addDataToDatabase(exerciseName, exerciseDuration, exerciseDescription);
-                    Toast.makeText(TestingDatabase.this, "Exercise added to the database!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddExerciseDatabase.this, "Exercise added to the database!", Toast.LENGTH_SHORT).show();
 
                     //Reset input fields after submission
                     exerciseNameFieldInput.setText("");

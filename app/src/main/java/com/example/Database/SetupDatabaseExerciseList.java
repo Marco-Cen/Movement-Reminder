@@ -1,0 +1,85 @@
+package com.example.Database;
+
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.movementreminder.R;
+import com.example.movementreminder.UpdateExercisesDatabase;
+
+import java.util.List;
+
+/* NOTES:
+ - CourseRVAdapter
+
+ */
+public class SetupDatabaseExerciseList extends RecyclerView.Adapter<SetupDatabaseExerciseList.ViewHolder> {
+
+    // variable for our array list and context
+    private List<ExerciseDataModel> exerciseDataModelArrayList;
+    private Context context;
+
+    public SetupDatabaseExerciseList(List<ExerciseDataModel> exerciseList, Context context) {
+        this.exerciseDataModelArrayList = exerciseList;
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public SetupDatabaseExerciseList.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // on below line we are inflating our layout
+        // file for our recycler view items.
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.setup_database_exerciselist, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull SetupDatabaseExerciseList.ViewHolder holder, int position) {
+        ExerciseDataModel modal = exerciseDataModelArrayList.get(position);
+        holder.exerciseNameField.setText("Exercise Name: " + modal.getExerciseName());
+        holder.exerciseDurationField.setText("Duration: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
+        holder.exerciseDescripField.setText("Note: " + modal.getExerciseNote());
+
+        //-- For UPDATE function in CRUD [adding on click listener for item of recycler view] --
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // on below line we are creating a new intent.
+                Intent i = new Intent(context, UpdateExercisesDatabase.class);
+                // on below line we are passing all the data to new activity.
+                i.putExtra("exerciseName", modal.getExerciseName());
+                i.putExtra("exerciseDuration", modal.getExerciseTimeRequired());
+                i.putExtra("exerciseDescription", modal.getExerciseNote());
+                i.putExtra("id", modal.getIDExercise());
+                // on below line we are starting a new activity.
+                context.startActivity(i);
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return exerciseDataModelArrayList.size();
+    }
+
+
+    //-- HELPER CLASS --
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        // creating variables for our text views.
+        private TextView exerciseNameField, exerciseDurationField, exerciseDescripField;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            // initializing our text views
+            exerciseNameField = itemView.findViewById(R.id.exerciseName);
+            exerciseDurationField = itemView.findViewById(R.id.exerciseDuration);
+            exerciseDescripField = itemView.findViewById(R.id.exerciseNote);
+        }
+    }
+}

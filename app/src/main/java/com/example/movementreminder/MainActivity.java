@@ -12,11 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.mongodb.App;
-import io.realm.mongodb.AppConfiguration;
-
 public class MainActivity extends AppCompatActivity {
 
     //For Realm Sync
@@ -82,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //-- Functionality to redirect to Testing User Input CRUD page (TEST) --
     public void testCRUD(){
-        Intent intent = new Intent(this, TestingDatabase.class); //TestingDatabase, testingforuserinput
+        Intent intent = new Intent(this, AddExerciseDatabase.class); //TestingDatabase, testingforuserinput
         startActivity(intent);
     }
     //////////// [End]

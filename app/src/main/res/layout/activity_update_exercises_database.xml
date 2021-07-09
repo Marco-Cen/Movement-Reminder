@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_update_course -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UpdateExercisesDatabase">
+    <!--Edit text to enter Exercise name to add-->
+    <EditText
+        android:id="@+id/addExerciseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Enter Exercise Name to Add" />
+
+    <!--edit text to enter exercise duration-->
+    <EditText
+        android:id="@+id/addExerciseDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Exercise Duration (Minutes)" />
+
+    <!--edit text to display exercise additional notes/description -->
+    <EditText
+        android:id="@+id/addExerciseNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Exercise Additional Notes/Description" />
+
+
+    <!--button for adding new course-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="30dp" />
+
+        <Button
+            android:id="@+id/dontChangeBttnUpdateExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Don't Change"
+            android:textAllCaps="false" />
+
+        <!--button for updating course-->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="25dp" />
+
+        <Button
+            android:id="@+id/updateBttnUpdateExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UPDATE" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TestingDatabase">
+    tools:context=".AddExerciseDatabase">
 
     <!--Edit text to enter Exercise name to add-->
     <EditText
