@@ -10,16 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovementReminder">
-        <activity android:name="com.example.database.UpdateExercisesDatabase"></activity>
-        <activity android:name="com.example.database.ViewDatabaseExercises" />
-        <activity android:name="com.example.database.AddExerciseDatabase" />
-<!--        <activity android:name=".testingforuserinput" />-->
+        <activity android:name="com.example.database.PainFormActivity"></activity>
+        <activity android:name="com.example.database.CRUD_UpdateDeletePainJointsDatabase" />
+        <activity android:name="com.example.database.CRUD_ViewDatabasePainJoints" />
+        <activity android:name="com.example.database.SetupDatabasePainJointData" />
+        <activity android:name="com.example.database.CRUD_UpdateDeleteExercisesDatabase" />
+        <activity android:name="com.example.database.CRUD_ViewDatabaseExercises" />
+        <activity android:name="com.example.database.CRUD_AddExerciseDatabaseEntry" /> <!-- <activity android:name=".testingforuserinput" /> -->
         <activity android:name=".AnalysisActivity2" />
         <activity
             android:name=".starRatingPopupActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".ExerciseSelectedActivity" />
-        <activity android:name=".PainFormActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

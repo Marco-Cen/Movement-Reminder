@@ -11,7 +11,11 @@ import io.realm.annotations.PrimaryKey;
 
 /* NOTE:
 - This class is a DATA MODEL OBJECT for her PAIN x Joint List
-
+- Order of Usage:
+    - PainFormActivity.java > activity_pain_form_activity.xml
+    - CRUD_ViewDatabasePainJoints.java > activity_crud_view_painjointsdatabase.xml
+    - SetupDatabasePainJointData.java > setup_database_painjointlist.xml
+    -
  */
 public class PainJointDataModel extends RealmObject {
 

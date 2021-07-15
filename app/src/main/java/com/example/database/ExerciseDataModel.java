@@ -4,6 +4,11 @@ package com.example.database;
 - This class represents the DATA MODEL used for the backend implementation
 of this app (Database) with relation to 'MongoDB Realm'
 - For Exercises (List of Exercises & Exercise selected) related content
+- Order of Usage:
+    - CRUD_AddExerciseDatabaseEntry.java > activity_crud_add_exercisedatabase.xml
+    - CRUD_ViewDatabaseExercises.java > activity_crud_view_exercisesdatabase.xml
+    - SetupDatabaseExercisesList.java > setup_database_exerciseslist.xml
+    -
  */
 
 import io.realm.RealmObject;

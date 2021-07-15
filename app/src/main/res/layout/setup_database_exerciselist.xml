@@ -15,13 +15,13 @@
         android:layout_margin="3dp"
         android:orientation="vertical">
 
-        <!--text view for our course name-->
+        <!--text view for our exercise name-->
         <TextView
             android:id="@+id/exerciseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:text="Exercise Name"
+            android:text="(Dynamic Exercise Name)"
             android:textColor="@color/black" />
 
         <LinearLayout
@@ -30,17 +30,17 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <!--text view for our course duration-->
+            <!--text view for our exercise duration-->
             <TextView
                 android:id="@+id/exerciseDuration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="Duration"
+                android:text="(Dynamic Duration)"
                 android:textColor="@color/black" />
 
-            <!--text view for our course tracks-->
+            <!--text view for our exercise tracks-->
             <TextView
                 android:id="@+id/idTVCourseTracks"
                 android:layout_width="0dp"
@@ -54,14 +54,14 @@
 
         </LinearLayout>
 
-        <!--text view for our course description-->
+        <!--text view for our exercise description-->
         <TextView
             android:id="@+id/exerciseNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="3dp"
-            android:text="Description"
+            android:text="(Dynamic Description)"
             android:textColor="@color/black" />
 
     </LinearLayout>

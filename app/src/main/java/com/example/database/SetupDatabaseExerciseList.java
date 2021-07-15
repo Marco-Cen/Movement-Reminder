@@ -24,10 +24,12 @@ public class SetupDatabaseExerciseList extends RecyclerView.Adapter<SetupDatabas
     private List<ExerciseDataModel> exerciseDataModelArrayList;
     private Context context;
 
+    //-- Constructor --
     public SetupDatabaseExerciseList(List<ExerciseDataModel> exerciseList, Context context) {
         this.exerciseDataModelArrayList = exerciseList;
         this.context = context;
     }
+
 
     @NonNull
     @Override
@@ -38,37 +40,7 @@ public class SetupDatabaseExerciseList extends RecyclerView.Adapter<SetupDatabas
         return new ViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull SetupDatabaseExerciseList.ViewHolder holder, int position) {
-        ExerciseDataModel modal = exerciseDataModelArrayList.get(position);
-        holder.exerciseNameField.setText("[Exercise Name]: " + modal.getExerciseName());
-        holder.exerciseDurationField.setText("[Duration]: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
-        holder.exerciseDescripField.setText("[Note]: " + modal.getExerciseNote());
-
-        //-- For UPDATE function in CRUD [adding on click listener for item of recycler view] --
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // on below line we are creating a new intent.
-                Intent i = new Intent(context, UpdateExercisesDatabase.class);
-                // on below line we are passing all the data to new activity.
-                i.putExtra("exerciseName", modal.getExerciseName());
-                i.putExtra("exerciseDuration", modal.getExerciseTimeRequired());
-                i.putExtra("exerciseDescription", modal.getExerciseNote());
-                i.putExtra("id", modal.getIDExercise());
-                // on below line we are starting a new activity.
-                context.startActivity(i);
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return exerciseDataModelArrayList.size();
-    }
-
-
-    //-- HELPER CLASS --
+    //-- Sets content INTO tile cards! --
     public class ViewHolder extends RecyclerView.ViewHolder {
         // creating variables for our text views.
         private TextView exerciseNameField, exerciseDurationField, exerciseDescripField;
@@ -81,4 +53,38 @@ public class SetupDatabaseExerciseList extends RecyclerView.Adapter<SetupDatabas
             exerciseDescripField = itemView.findViewById(R.id.exerciseNote);
         }
     }
+
+
+    //-- (UPDATE) When click on card tile shown! --
+    @Override
+    public void onBindViewHolder(@NonNull SetupDatabaseExerciseList.ViewHolder holder, int position) {
+        ExerciseDataModel modal = exerciseDataModelArrayList.get(position);
+        holder.exerciseNameField.setText("[Exercise Name]: " + modal.getExerciseName());
+        holder.exerciseDurationField.setText("[Duration]: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
+        holder.exerciseDescripField.setText("[Note]: " + modal.getExerciseNote());
+
+        //-- UPDATE Function in CRUD [adding on click listener for item of recycler view] --
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // on below line we are creating a new intent.
+                Intent i = new Intent(context, CRUD_UpdateDeleteExercisesDatabase.class);
+                // on below line we are passing all the data to new activity.
+                i.putExtra("exerciseName", modal.getExerciseName());
+                i.putExtra("exerciseDuration", modal.getExerciseTimeRequired());
+                i.putExtra("exerciseDescription", modal.getExerciseNote());
+                i.putExtra("id", modal.getIDExercise());
+                // on below line we are starting a new activity.
+                context.startActivity(i);
+            }
+        });
+    }
+
+
+    //-- SIZE of list populated --
+    @Override
+    public int getItemCount() {
+        return exerciseDataModelArrayList.size();
+    }
+
 }

@@ -12,8 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.database.AddExerciseDatabase;
-import com.example.database.ViewDatabaseExercises;
+import com.example.database.CRUD_AddExerciseDatabaseEntry;
+import com.example.database.CRUD_ViewDatabaseExercises;
+import com.example.database.CRUD_ViewDatabasePainJoints;
+import com.example.database.PainFormActivity;
 
 
 /* NOTE:
@@ -38,17 +40,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         // "VIEW DATABASE: Exercises" BUTTON
-        Button viewDbBttn = findViewById(R.id.ViewExerciseDatabaseBttn); //for list of exercises popup and pain form input
-        viewDbBttn.setOnClickListener(new View.OnClickListener(){
+        Button viewDbExercisesBttn = findViewById(R.id.ViewExerciseDatabaseBttn); //for list of exercises popup and pain form input
+        viewDbExercisesBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, ViewDatabaseExercises.class);
+                Intent i = new Intent(MainActivity.this, CRUD_ViewDatabaseExercises.class);
                 startActivity(i);
             }
         });
 
 
         // "VIEW DATABASE: Pain" BUTTON
+        Button viewDbJointPainBttn = findViewById(R.id.ViewPainDatabaseBttn); //for list of exercises popup and pain form input
+        viewDbJointPainBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(MainActivity.this, CRUD_ViewDatabasePainJoints.class);
+                startActivity(i);
+            }
+        });
 
 
 
@@ -83,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //Functionality to open/redirect to (AddExercise) PAGE
-                Intent intent = new Intent(MainActivity.this, AddExerciseDatabase.class); //TestingDatabase, testingforuserinput
+                Intent intent = new Intent(MainActivity.this, CRUD_AddExerciseDatabaseEntry.class); //TestingDatabase, testingforuserinput
                 startActivity(intent);
             }
         });
