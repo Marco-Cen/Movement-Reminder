@@ -12,12 +12,17 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.NotificationHelper;
+
 public class SettingsActivity extends AppCompatActivity {
+
+    NotificationHelper notificationHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        notificationHelper = new NotificationHelper(this);
 
         //setting up the Switch for overall Notification
         Switch switchNotification = findViewById(R.id.NotificationsOverall);
@@ -26,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     Toast.makeText(getApplicationContext(),"notifications on",Toast.LENGTH_SHORT).show();
+                    notificationHelper.sendHighPriorityNotification("Movement Reminder","Lest move some joints",MainActivity.class);
                 }
             }
 
