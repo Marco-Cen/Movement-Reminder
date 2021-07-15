@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -17,8 +19,22 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //setting up the Switch for overall Notification
+        Switch switchNotification = findViewById(R.id.NotificationsOverall);
+        switchNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    Toast.makeText(getApplicationContext(),"notifications on",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
+
+
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("SETTINGS");
+
 
     }
 
