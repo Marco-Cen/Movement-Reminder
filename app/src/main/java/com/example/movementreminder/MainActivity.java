@@ -12,16 +12,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.database.CRUD_AddExerciseDatabaseEntry;
-import com.example.database.CRUD_ViewDatabaseExercises;
-import com.example.database.CRUD_ViewDatabasePainJoints;
-import com.example.database.PainFormActivity;
+import com.example.cruddatabase.AddExerciseEntry;
+import com.example.cruddatabase.ViewExercisesDatabase;
+import com.example.cruddatabase.ViewPainJointsDatabase;
+import com.example.cruddatabase.AddPainJointFormEntry;
 
 
 /* NOTE:
+- Project Duration: May 2021 - July 2021
 - TODO: (Realm Sync: syncs with cloud and not just locally on her device)
 - TODO: (Build Error due ot Realm setup integration with app: Cause: kotlin.KotlinNullPointerException -- no fix??)
+- TODO: StarRating ACtivity, Exercise selected and finished count
 
+    //Known issue: last feedback regarding it in May 2021
      Error: org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugJavaWithJavac'
 
  */
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         viewDbExercisesBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, CRUD_ViewDatabaseExercises.class);
+                Intent i = new Intent(MainActivity.this, ViewExercisesDatabase.class);
                 startActivity(i);
             }
         });
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         viewDbJointPainBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, CRUD_ViewDatabasePainJoints.class);
+                Intent i = new Intent(MainActivity.this, ViewPainJointsDatabase.class);
                 startActivity(i);
             }
         });
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v){
                //Functionality to open/redirect to (PAIN FORM) PAGE
-               Intent intent = new Intent(MainActivity.this, PainFormActivity.class);
+               Intent intent = new Intent(MainActivity.this, AddPainJointFormEntry.class);
                startActivity(intent);
            }
         });
@@ -93,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //Functionality to open/redirect to (AddExercise) PAGE
-                Intent intent = new Intent(MainActivity.this, CRUD_AddExerciseDatabaseEntry.class); //TestingDatabase, testingforuserinput
+                Intent intent = new Intent(MainActivity.this, AddExerciseEntry.class); //TestingDatabase, testingforuserinput
                 startActivity(intent);
             }
         });

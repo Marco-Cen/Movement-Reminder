@@ -3,20 +3,20 @@
     package="com.example.movementreminder">
 
     <application
-        android:name="com.example.database.RealmDbLinkage"
+        android:name="com.example.setupdatabase.RealmDbLinkage"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovementReminder">
-        <activity android:name="com.example.database.PainFormActivity"></activity>
-        <activity android:name="com.example.database.CRUD_UpdateDeletePainJointsDatabase" />
-        <activity android:name="com.example.database.CRUD_ViewDatabasePainJoints" />
-        <activity android:name="com.example.database.SetupDatabasePainJointData" />
-        <activity android:name="com.example.database.CRUD_UpdateDeleteExercisesDatabase" />
-        <activity android:name="com.example.database.CRUD_ViewDatabaseExercises" />
-        <activity android:name="com.example.database.CRUD_AddExerciseDatabaseEntry" /> <!-- <activity android:name=".testingforuserinput" /> -->
+        <activity android:name="com.example.cruddatabase.AddPainJointFormEntry"></activity>
+        <activity android:name="com.example.cruddatabase.UpdateDeletePainJointsDatabase" />
+        <activity android:name="com.example.cruddatabase.ViewPainJointsDatabase" />
+        <activity android:name="com.example.cruddatabase.CardContentLayout_PainJointsDB" />
+        <activity android:name="com.example.cruddatabase.UpdateDeleteExercisesDatabase" />
+        <activity android:name="com.example.cruddatabase.ViewExercisesDatabase" />
+        <activity android:name="com.example.cruddatabase.AddExerciseEntry" /> <!-- <activity android:name=".testingforuserinput" /> -->
         <activity android:name=".AnalysisActivity2" />
         <activity
             android:name=".starRatingPopupActivity"
