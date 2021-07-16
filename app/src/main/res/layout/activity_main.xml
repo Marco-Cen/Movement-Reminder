@@ -19,8 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="View Database: Pain"
-            android:textAllCaps="false" />
+            android:text="View Database: Joint Pains"
+            android:textAllCaps="false"
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/ViewExerciseDatabaseBttn"
@@ -75,7 +76,7 @@
             android:id="@+id/AddExercise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AddExercise" />
+            android:text="Exercise Activity" />
 
         <Space
             android:layout_width="match_parent"
@@ -103,7 +104,7 @@
             android:id="@+id/CRUDTestPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TEST: CRUD User Input Page" />
+            android:text="TEST: Add Exercise" />
 
 
     </LinearLayout>
