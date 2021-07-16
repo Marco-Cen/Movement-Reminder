@@ -1,6 +1,7 @@
 package com.example.cruddatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,6 +25,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 /* NOTE:
 - 'Create' in CRUD
@@ -35,7 +38,7 @@ public class AddPainJointFormEntry extends AppCompatActivity {
     //-- Instance Variables --
     private Realm realm;
     private List<PainJointDataModel> painJointDataModel;
-    private String[] jointList;
+    private ArrayList<String> jointNameList;
 
     private ArrayAdapter<String> dropdownAdapter; //(Describes how the items are displayed)
     private Spinner jointNameDropdownField;
@@ -63,9 +66,8 @@ public class AddPainJointFormEntry extends AppCompatActivity {
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Pain Form");
 
-        //-- Initialize Variables (our edittext and buttons) --
+        //-- Initialize Realm --
         realm = Realm.getDefaultInstance();
-        painJointDataModel = new ArrayList<>();
 
 
         // "Back" BUTTON
@@ -90,23 +92,23 @@ public class AddPainJointFormEntry extends AppCompatActivity {
         });
 
 
-        //// -- Populate JOINT DROPDOWN MENU --
-        //TODO (Setup PainJointDataModel in db & loop thru in dropdown menu)!!!!!!!!!!!!!!!!!!
-        //TODO ('READ' options into database on specific field of 'jointName')
-        //TODO ('add/create' entry into database of painJoint Model)
+        //// -- Populate JOINT DROPDOWN MENU (Spinner) --
         jointNameDropdownField = findViewById(R.id.jointDropdownList);
-        // Spinner Options (Get Pain/Joint List Data from Realm Database & Loop thru)
+
+        // Spinner Options (Get ALL entries in PainJointDataModel Realm Db and put in list)
         painJointDataModel = realm.where(PainJointDataModel.class).findAll();
 
-
-        jointList = new String[]{"", "Arm", "LowerBack", "UpperBack"}; //TEMPORARY
+        jointNameList = new ArrayList<String>();
+        jointNameList.add(""); //Default initial value selected in dropdown menu
+        for (PainJointDataModel entry : painJointDataModel){
+            jointNameList.add(entry.getJointName());
+        }
 
         //creates adapter (Describes how the items are displayed)
-        dropdownAdapter = new ArrayAdapter<>(AddPainJointFormEntry.this, android.R.layout.simple_spinner_dropdown_item, jointList);
+        dropdownAdapter = new ArrayAdapter<>(AddPainJointFormEntry.this, android.R.layout.simple_spinner_dropdown_item, jointNameList);
+
         //set the spinners adapter to the previously created one.
         jointNameDropdownField.setAdapter(dropdownAdapter);
-
-
 
 
 
