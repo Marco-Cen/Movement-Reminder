@@ -16,8 +16,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
+import io.realm.RealmList;
 import io.realm.mongodb.mongo.MongoClient;
 import io.realm.mongodb.mongo.MongoDatabase;
 
@@ -155,9 +158,20 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
                 mTimerRunning = false;
                 updateButtons();
 
-                //Popup of star rating
-                Toast.makeText(ExerciseSelectedActivity.this, "Nice! -- Exercise Timer Finished! -- WhooHoo!", Toast.LENGTH_SHORT).show();
-                Intent starPopupIntent = new Intent(getApplicationContext(), starRatingPopupActivity.class);
+                Toast.makeText(ExerciseSelectedActivity.this, "Nice! -- Exercise Timer Finished! -- WhooHoo!", Toast.LENGTH_SHORT).show();  //Msg shown to user
+
+                //TODO: NEED OBAIDA'S PAGE TO GET EXERCISE SELECTED INTENT INFO
+                Intent starPopupIntent = new Intent(getBaseContext(), starRatingPopupActivity.class);
+
+                //TEST: (TESTING DATA bc waiting on Obaida)
+//                RealmList<Float> exampleTestRatingsList = new RealmList<Float> (Arrays.asList("2.00f", "2.00f", "2.00f"));  //{ 2.00f, 2.00f, 2.00f};
+//                ArrayList<Float> exampleTestRatingsList = new ArrayList<>(Arrays.asList(2.00f, 2.00f, 2.00f));
+
+                // Passing all the data to new activity. (https://stackoverflow.com/questions/2091465/how-do-i-pass-data-between-activities-in-android-application#:~:text=The%20easiest%20way%20to%20do,sessionId)%3B%20startActivity(intent)%3B)
+//                starPopupIntent.putExtra("IDExerciseKey", 3); //curently using testing data in arguements
+//                starPopupIntent.putExtra("exerciseAllRatingsKey", 2.00f); //curently using testing data in arguements
+
+                // Starting a new activity with Info passed in
                 startActivity(starPopupIntent);
             }
         }.start();  //ALlows for immediately start timer

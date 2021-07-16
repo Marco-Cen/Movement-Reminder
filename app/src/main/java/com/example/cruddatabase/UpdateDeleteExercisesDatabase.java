@@ -54,8 +54,8 @@ public class UpdateDeleteExercisesDatabase extends AppCompatActivity {
 
         // on below line we are getting data which is passed from intent.
         id = getIntent().getLongExtra("id", 0);
-        exerciseName = getIntent().getStringExtra("exerciseName"); //'name' or the first arguemnt in .get__Extra() refers to
-        exerciseDuration = getIntent().getIntExtra("exerciseDuration", 0);
+        exerciseName = getIntent().getStringExtra("exerciseName");
+        exerciseDuration = getIntent().getIntExtra("exerciseDuration", 0); //'name' or the first arguemnt in .get__Extra() refers to the 'key', in 'key, value' pair so can be referenced in new activity sending to
         exerciseDescription = getIntent().getStringExtra("exerciseDescription");
 
         // on below line we are setting data in our edit test fields.
