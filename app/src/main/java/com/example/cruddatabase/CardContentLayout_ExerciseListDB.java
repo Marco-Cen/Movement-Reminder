@@ -44,11 +44,12 @@ public class CardContentLayout_ExerciseListDB extends RecyclerView.Adapter<CardC
     //-- Sets content INTO tile cards! --
     public class ViewHolder extends RecyclerView.ViewHolder {
         // creating variables for our text views.
-        private TextView exerciseNameField, exerciseDurationField, exerciseDescripField;
+        private TextView idExerciseField, exerciseNameField, exerciseDurationField, exerciseDescripField;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // initializing our text views
+            idExerciseField = itemView.findViewById(R.id.idExerciseField);
             exerciseNameField = itemView.findViewById(R.id.exerciseName);
             exerciseDurationField = itemView.findViewById(R.id.exerciseDuration);
             exerciseDescripField = itemView.findViewById(R.id.exerciseNote);
@@ -60,6 +61,7 @@ public class CardContentLayout_ExerciseListDB extends RecyclerView.Adapter<CardC
     @Override
     public void onBindViewHolder(@NonNull CardContentLayout_ExerciseListDB.ViewHolder holder, int position) {
         ExerciseDataModel modal = exerciseDataModelArrayList.get(position);
+        holder.idExerciseField.setText("[ID]: " + modal.getIDExercise());
         holder.exerciseNameField.setText("[Exercise Name]: " + modal.getExerciseName());
         holder.exerciseDurationField.setText("[Duration]: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
         holder.exerciseDescripField.setText("[Note]: " + modal.getExerciseNote());

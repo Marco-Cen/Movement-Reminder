@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:text="(Dynamic ID)"
+            android:text="(Dynamic Pain ID)"
             android:textColor="@color/black" />
 
         <!--text view for our joint name-->

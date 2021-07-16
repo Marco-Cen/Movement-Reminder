@@ -30,6 +30,7 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
+
             <!--text view for our exercise duration-->
             <TextView
                 android:id="@+id/exerciseDuration"
@@ -40,14 +41,15 @@
                 android:text="(Dynamic Duration)"
                 android:textColor="@color/black" />
 
+
             <!--text view for our exercise tracks-->
             <TextView
-                android:id="@+id/idTVCourseTracks"
+                android:id="@+id/idExerciseField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="(Unused atm)"
+                android:text="(Dynamic Exercise ID)"
                 android:textColor="@color/black" />
 
 
