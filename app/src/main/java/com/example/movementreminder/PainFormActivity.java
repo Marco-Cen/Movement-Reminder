@@ -100,7 +100,7 @@ public class PainFormActivity extends AppCompatActivity {
 
 
         //// -- Populate JOINT DROPDOWN MENU (Spinner) --
-        jointNameDropdownField = findViewById(R.id.jointDropdownList); //TODO: NEeds to be distinct jointNames populated only
+        jointNameDropdownField = findViewById(R.id.jointDropdownList);
 
         // Spinner Options (Get ALL entries in PainJointDataModel Realm Db and put in list)
         painJointDataModel = realm.where(PainJointDataModel.class).findAll();
@@ -108,7 +108,9 @@ public class PainFormActivity extends AppCompatActivity {
         jointNameList = new ArrayList<String>();
         jointNameList.add(""); //Default initial value selected in dropdown menu
         for (PainJointDataModel entry : painJointDataModel){
-            jointNameList.add(entry.getJointName());
+
+            //ONLY adds DISTINCT Joint Names to dropdown menu
+            if (!jointNameList.contains(entry.getJointName())){jointNameList.add(entry.getJointName());}
         }
 
         //creates adapter (Describes how the items are displayed)
