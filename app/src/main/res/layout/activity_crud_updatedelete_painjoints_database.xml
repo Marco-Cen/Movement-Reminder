@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- activity_update_course -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +20,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/jointPainLevel"
+                android:id="@+id/painIdDisplaytxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -34,10 +34,10 @@
                 android:id="@+id/idPainField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:text=" (Dynamic ID)"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
@@ -62,9 +62,9 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:hint="UPDATING Joint Pain Rating (1-100%)"
+            android:inputType="number"
             android:max="100"
-            android:min="1"
-            android:inputType="number" />
+            android:min="1" />
     </LinearLayout>
 
     <!-- Edit text to enter Joint name -->
@@ -76,8 +76,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:translationY="225dp">
+        android:orientation="vertical">
 
         <Space
             android:layout_width="wrap_content"
@@ -126,4 +125,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

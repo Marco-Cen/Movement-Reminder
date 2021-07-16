@@ -52,7 +52,7 @@ public class CardContentLayout_PainJointsDB extends RecyclerView.Adapter<CardCon
             idJointPainField = itemView.findViewById(R.id.idPainField);
             dateRecordedField = itemView.findViewById(R.id.dateRecorded);
             jointNameField = itemView.findViewById(R.id.jointName);
-            jointPainValueField = itemView.findViewById(R.id.jointPainLevel);
+            jointPainValueField = itemView.findViewById(R.id.painIdDisplaytxt);
         }
     }
 

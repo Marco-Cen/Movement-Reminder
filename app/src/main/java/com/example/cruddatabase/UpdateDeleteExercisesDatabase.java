@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.movementreminder.R;
@@ -27,6 +28,7 @@ public class UpdateDeleteExercisesDatabase extends AppCompatActivity {
 
     // Storing our values from edittext fields.
     private Realm realm;
+    private TextView idDisplayField;
     private long id;
     private Button updateBtn, deletebttn, dontChangebttn;
 
@@ -42,6 +44,7 @@ public class UpdateDeleteExercisesDatabase extends AppCompatActivity {
 
         // initializing our edittext and buttons
         realm = Realm.getDefaultInstance();
+        idDisplayField = findViewById(R.id.idExerciseFieldInUpdatePage);
         exerciseNameField = findViewById(R.id.addExerciseName);
         exerciseDurationField = findViewById(R.id.addExerciseDuration);
         exerciseDescripField = findViewById(R.id.addExerciseNote);
@@ -50,12 +53,13 @@ public class UpdateDeleteExercisesDatabase extends AppCompatActivity {
         dontChangebttn = findViewById(R.id.dontChangeBttnUpdateExercise);
 
         // on below line we are getting data which is passed from intent.
+        id = getIntent().getLongExtra("id", 0);
         exerciseName = getIntent().getStringExtra("exerciseName"); //'name' or the first arguemnt in .get__Extra() refers to
         exerciseDuration = getIntent().getIntExtra("exerciseDuration", 0);
         exerciseDescription = getIntent().getStringExtra("exerciseDescription");
-        id = getIntent().getLongExtra("id", 0);
 
         // on below line we are setting data in our edit test fields.
+        idDisplayField.setText("[" + String.valueOf(id) + "]");
         exerciseNameField.setText(exerciseName);
         exerciseDurationField.setText(String.valueOf(exerciseDuration));
         exerciseDescripField.setText(exerciseDescription);
@@ -137,7 +141,7 @@ public class UpdateDeleteExercisesDatabase extends AppCompatActivity {
                     updateCourse(exerciseDataModel, exerciseName, exerciseDuration, exerciseDescription);
 
                     // on below line we are displaying a toast message when course is updated.
-                    Toast.makeText(UpdateDeleteExercisesDatabase.this, "[" + exerciseName + "] was UPDATED :)", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateDeleteExercisesDatabase.this, "UPDATED! \n \t \t ID: [" + String.valueOf(id) + "] \n \t \t Exercise Name: [" + exerciseName + "]", Toast.LENGTH_LONG).show();
 
                     // on below line we are opening our activity for read course activity to view updated course.
                     Intent i = new Intent(UpdateDeleteExercisesDatabase.this, ViewExercisesDatabase.class);
