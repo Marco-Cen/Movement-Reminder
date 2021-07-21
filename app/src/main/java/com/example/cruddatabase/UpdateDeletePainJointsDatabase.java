@@ -57,7 +57,7 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
         // on below line we are getting data which is passed from intent.
         id = getIntent().getLongExtra("id", 0);
         jointName = getIntent().getStringExtra("jointName");
-        jointPainValue = getIntent().getIntExtra("jointPainLevel", 0); //'name' or the first arguemnt in .get__Extra() refers to the .xml text input id field
+        jointPainValue = getIntent().getIntExtra("jointPainLevel", 0); //'name' or the first arguemnt in .get__Extra() refers to the 'key', in 'key, value' pair so can be referenced in new activity sending to [Must use same key name here and new activity to use PASSED information between pages
 
         // on below line we are setting data in our edit test fields. (SETTING CONTENTS into input fields)
         idDisplayField.setText("[" + String.valueOf(id) + "]");

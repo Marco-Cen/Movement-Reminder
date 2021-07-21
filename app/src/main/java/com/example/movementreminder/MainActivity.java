@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.example.cruddatabase.AddExerciseEntry;
 import com.example.cruddatabase.ViewExercisesDatabase;
 import com.example.cruddatabase.ViewPainJointsDatabase;
-import com.example.cruddatabase.AddPainJointFormEntry;
 
 
 /* NOTE:
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v){
                //Functionality to open/redirect to (PAIN FORM) PAGE
-               Intent intent = new Intent(MainActivity.this, AddPainJointFormEntry.class);
+               Intent intent = new Intent(MainActivity.this, PainFormActivity.class);
                startActivity(intent);
            }
         });

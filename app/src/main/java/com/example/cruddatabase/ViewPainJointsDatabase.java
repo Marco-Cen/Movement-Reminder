@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.movementreminder.MainActivity;
+import com.example.movementreminder.PainFormActivity;
 import com.example.movementreminder.R;
 import com.example.setupdatabase.PainJointDataModel;
 
@@ -68,7 +69,7 @@ public class ViewPainJointsDatabase extends AppCompatActivity {
         addJointPainEntryBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(ViewPainJointsDatabase.this, AddPainJointFormEntry.class);
+                Intent i = new Intent(ViewPainJointsDatabase.this, AddJointNameEntry.class);
                 startActivity(i);
             }
         });

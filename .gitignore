@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.lock
+.gradle/6.7.1/executionHistory/executionHistory.lock
+.gradle/6.7.1/fileHashes/fileHashes.bin
+.gradle/6.7.1/fileHashes/fileHashes.lock
