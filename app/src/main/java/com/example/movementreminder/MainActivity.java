@@ -100,6 +100,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button button_selectionExercise;
+        button_selectionExercise = findViewById((R.id.selectionExercise));
+        button_selectionExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,SelectionExercise.class);
+                startActivity(intent);
+            }
+        });
+
         //////////// [End]
 
     }
