@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.movementreminder.Exercises;
 import com.example.movementreminder.MainActivity;
 import com.example.movementreminder.R;
 import com.example.setupdatabase.ExerciseDataModel;
@@ -53,7 +54,7 @@ public class AddExerciseEntry extends AppCompatActivity {
         backBttn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(AddExerciseEntry.this, MainActivity.class); //TO BE REPLACED AFTER!
+            Intent i = new Intent(AddExerciseEntry.this, Exercises.class); //TO BE REPLACED AFTER!
             startActivity(i);
         }
         });

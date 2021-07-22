@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Exercises">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ExercisesDropdownTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+
+
+                android:text="Select which exercise to perform"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/addNewExerciseEntryBttn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="5dp"
+                android:minHeight="38dp"
+                android:text="Add Exercise"
+                android:textAllCaps="false"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/exerciseDropdownList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="150dp" />
+
+        <Button
+            android:id="@+id/randomSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Random Selection"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp" />
+
+    <Button
+        android:id="@+id/ViewExerciseDatabaseBttn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="40dp"
+        android:text="View Database: Exercises"
+        android:textAllCaps="false" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/backBttnExercisePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textAllCaps="false" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="50dp" />
+
+        <Button
+            android:id="@+id/nextBttnExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXT" />
+    </LinearLayout>
+
+</LinearLayout>

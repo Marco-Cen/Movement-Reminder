@@ -73,7 +73,7 @@
             android:minHeight="25dp" />
 
         <Button
-            android:id="@+id/AddExercise"
+            android:id="@+id/AddExerciseBttn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Exercise Activity" />

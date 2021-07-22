@@ -77,6 +77,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //-- Linking Buttons to redirect to other pages --
+        Button bttnExercises;
+        bttnExercises = findViewById((R.id.AddExerciseBttn));
+        bttnExercises.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Functionality to open/redirect to Exercises PAGE
+                Intent intent = new Intent(MainActivity.this, Exercises.class);
+                startActivity(intent);
+            }
+        });
+
         //////////// [START]  TEST: Linking Button to redirect to page
         Button bttnExerciseSelected;
         bttnExerciseSelected = findViewById((R.id.exerciseSelectedBttn));
@@ -88,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         Button bttnTestCRUD; //for list of exercises popup and pain form input
         bttnTestCRUD = (Button) findViewById((R.id.CRUDTestPage));
