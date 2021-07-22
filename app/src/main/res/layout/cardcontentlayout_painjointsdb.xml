@@ -24,15 +24,6 @@
             android:text="(Dynamic Pain ID)"
             android:textColor="@color/black" />
 
-        <!--text view for our joint name-->
-        <TextView
-            android:id="@+id/dateRecorded"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:text="(Dynamic Date Recorded)"
-            android:textColor="@color/black" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,20 +49,18 @@
                 android:padding="3dp"
                 android:text="(Dynamic Joint Pain Level)"
                 android:textColor="@color/black" />
-
-
-
         </LinearLayout>
 
-        <!--text view for our course description-->
-<!--        <TextView-->
-<!--            android:id="@+id/exerciseNote"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:padding="3dp"-->
-<!--            android:text="Description"-->
-<!--            android:textColor="@color/black" />-->
+        <!--text view for our joint name-->
+        <TextView
+            android:id="@+id/dateRecorded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="(Dynamic Date Recorded)"
+            android:textColor="@color/black" />
+
+
 
     </LinearLayout>
 

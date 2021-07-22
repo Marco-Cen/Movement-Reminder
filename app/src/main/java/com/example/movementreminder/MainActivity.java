@@ -29,8 +29,13 @@ import com.example.cruddatabase.ViewPainJointsDatabase;
  */
 public class MainActivity extends AppCompatActivity {
 
+    //-- Instance Variables --
+    Button bttnPainForm, listExerciseBttn, viewDbJointPainBttn, viewDbExercisesBttn;
+
     //For Realm Sync
 //    String MongoDBRealmAppID = "makermove_movementreminder-uyrap"; //Provided App ID in MongoDB Realm (Downloaded MongoDB Realm on GitHub Repo)
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,32 +45,8 @@ public class MainActivity extends AppCompatActivity {
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Hi Maddie!");
 
-
-        // "VIEW DATABASE: Exercises" BUTTON
-        Button viewDbExercisesBttn = findViewById(R.id.ViewExerciseDatabaseBttn); //for list of exercises popup and pain form input
-        viewDbExercisesBttn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, ViewExercisesDatabase.class);
-                startActivity(i);
-            }
-        });
-
-
-        // "VIEW DATABASE: Pain" BUTTON
-        Button viewDbJointPainBttn = findViewById(R.id.ViewPainDatabaseBttn); //for list of exercises popup and pain form input
-        viewDbJointPainBttn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, ViewPainJointsDatabase.class);
-                startActivity(i);
-            }
-        });
-
-
-
         //-- Linking Buttons to redirect to other pages --
-        Button bttnPainForm;
+        // "JOINT PAIN FORM" BUTTON
         bttnPainForm = findViewById((R.id.PainFormBttn));
         bttnPainForm.setOnClickListener(new View.OnClickListener(){
            @Override
@@ -76,34 +57,35 @@ public class MainActivity extends AppCompatActivity {
            }
         });
 
-
-        //////////// [START]  TEST: Linking Button to redirect to page
-        Button bttnExerciseSelected;
-        bttnExerciseSelected = findViewById((R.id.exerciseSelectedBttn));
-        bttnExerciseSelected.setOnClickListener(new View.OnClickListener(){
+        // "Exercise Activity" BUTTON
+        listExerciseBttn = findViewById(R.id.listOfExerciseBttn);
+        listExerciseBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Functionality to open/redirect to (ExerciseSelected) PAGE
-                Intent intent = new Intent(MainActivity.this, ExerciseSelectedActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(MainActivity.this, ExerciseListActivity.class);
+                startActivity(i);
             }
         });
 
-        Button bttnTestCRUD; //for list of exercises popup and pain form input
-        bttnTestCRUD = (Button) findViewById((R.id.CRUDTestPage));
-        bttnTestCRUD.setOnClickListener(new View.OnClickListener(){
+        // "VIEW DATABASE: Joint Pain" BUTTON
+        viewDbJointPainBttn = findViewById(R.id.ViewPainDatabaseBttn); //for list of exercises popup and pain form input
+        viewDbJointPainBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Functionality to open/redirect to (AddExercise) PAGE
-                Intent intent = new Intent(MainActivity.this, AddExerciseEntry.class); //TestingDatabase, testingforuserinput
-                startActivity(intent);
+                Intent i = new Intent(MainActivity.this, ViewPainJointsDatabase.class);
+                startActivity(i);
             }
         });
 
-
-
-        //////////// [End]
-
+        // "VIEW DATABASE: Exercises" BUTTON
+        viewDbExercisesBttn = findViewById(R.id.ViewExerciseDatabaseBttn); //for list of exercises popup and pain form input
+        viewDbExercisesBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(MainActivity.this, ViewExercisesDatabase.class);
+                startActivity(i);
+            }
+        });
     }
 
 
@@ -131,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     ////////
-
 
 
 }

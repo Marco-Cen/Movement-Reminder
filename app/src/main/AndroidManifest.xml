@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovementReminder">
 
-        <activity android:name=".SelectionExercise"></activity>
+        <activity android:name=".ExerciseListActivity"></activity>
       
         <activity android:name="com.example.cruddatabase.AddJointNameEntry"></activity>
         <activity android:name=".PainFormActivity" />
@@ -21,7 +21,7 @@
         <activity android:name="com.example.cruddatabase.UpdateDeleteExercisesDatabase" />
         <activity android:name="com.example.cruddatabase.ViewExercisesDatabase" />
         <activity android:name="com.example.cruddatabase.AddExerciseEntry" /> <!-- <activity android:name=".testingforuserinput" /> -->
-        <activity android:name=".AnalysisActivity2" />
+        <activity android:name=".AnalysisActivity" />
         <activity
             android:name=".starRatingPopupActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />

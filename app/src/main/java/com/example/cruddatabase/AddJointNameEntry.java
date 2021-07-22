@@ -41,7 +41,7 @@ public class AddJointNameEntry extends AppCompatActivity {
     private SimpleDateFormat dateFormat;
     private String dateRecordedString;
 
-    private Button backBttn, addBttn;
+    private Button backBttn, addBttn, viewDbBttn;
 
 
     @Override
@@ -66,6 +66,15 @@ public class AddJointNameEntry extends AppCompatActivity {
             }
         });
 
+        // VIEW DATABASE BUTTON
+        viewDbBttn = findViewById(R.id.viewPainDatabaseBttnAddingPage); //for list of exercises popup and pain form input
+        viewDbBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(AddJointNameEntry.this, ViewPainJointsDatabase.class);
+                startActivity(i);
+            }
+        });
 
         // Add BUTTON
         addBttn = findViewById(R.id.addJointNameEntry);

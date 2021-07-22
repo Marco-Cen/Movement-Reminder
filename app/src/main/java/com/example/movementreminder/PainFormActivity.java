@@ -89,7 +89,6 @@ public class PainFormActivity extends AppCompatActivity {
         });
 
 
-
         // VIEW DATABASE BUTTON
         viewDbBttn = findViewById(R.id.ViewPainDatabaseBttn); //for list of exercises popup and pain form input
         viewDbBttn.setOnClickListener(new View.OnClickListener(){
@@ -105,7 +104,7 @@ public class PainFormActivity extends AppCompatActivity {
         button_selectionExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PainFormActivity.this,SelectionExercise.class);
+                Intent intent = new Intent(PainFormActivity.this, ExerciseListActivity.class);
                 startActivity(intent);
             }
         });

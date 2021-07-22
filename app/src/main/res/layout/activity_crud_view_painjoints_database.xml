@@ -19,35 +19,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="left"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/homeBttn"
+            android:id="@+id/homePageBttnPainDb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="60dp"
-            android:minHeight="40dp"
             android:text="Home"
             android:textAllCaps="false"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/DatabaseInstructionsTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_horizontal"
             android:text="(Click Tile Card Below to EDIT)" />
 
         <Button
             android:id="@+id/addJointPainEntryBttn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:minHeight="45dp"
             android:text="Add Entry"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.movementreminder.ExerciseListActivity;
 import com.example.movementreminder.MainActivity;
 import com.example.movementreminder.R;
 import com.example.setupdatabase.ExerciseDataModel;
@@ -35,8 +36,8 @@ public class ViewExercisesDatabase extends AppCompatActivity {
     private RecyclerView exerciseListData; //RecyclerView
     private CardContentLayout_ExerciseListDB settingDBExerciseLayout; //Adapter
 
-    private Button homeBttn;
-    private Button addExerciseEntryBttn;
+    private Button homePageBttn, addExerciseEntryBttn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,9 @@ public class ViewExercisesDatabase extends AppCompatActivity {
 
 
 
-        // 'HOME' BUTTON
-        homeBttn = findViewById(R.id.homeBttn); //for list of exercises popup and pain form input
-        homeBttn.setOnClickListener(new View.OnClickListener(){
+        // 'Home' BUTTON
+        homePageBttn = findViewById(R.id.homePageBttnExercisesDb); //for list of exercises popup and pain form input
+        homePageBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent i = new Intent(ViewExercisesDatabase.this, MainActivity.class);

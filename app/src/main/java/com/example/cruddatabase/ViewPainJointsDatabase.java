@@ -36,8 +36,7 @@ public class ViewPainJointsDatabase extends AppCompatActivity {
     private RecyclerView painJointDatabaseDataEntries; //RecyclerView
     private CardContentLayout_PainJointsDB settingDBPainJointLayout; //Adapter
 
-    private Button homeBttn;
-    private Button addJointPainEntryBttn;
+    private Button homePageBttn, addJointPainEntryBttn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +53,9 @@ public class ViewPainJointsDatabase extends AppCompatActivity {
         prepareRecyclerView();
 
 
-        // 'HOME' BUTTON
-        homeBttn = findViewById(R.id.homeBttn); //for list of exercises popup and pain form input
-        homeBttn.setOnClickListener(new View.OnClickListener(){
+        // 'Home' BUTTON
+        homePageBttn = findViewById(R.id.homePageBttnPainDb); //for list of exercises popup and pain form input
+        homePageBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent i = new Intent(ViewPainJointsDatabase.this, MainActivity.class);
