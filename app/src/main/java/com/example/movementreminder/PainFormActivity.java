@@ -51,7 +51,7 @@ public class PainFormActivity extends AppCompatActivity {
     private SimpleDateFormat dateFormat;
     private String dateRecordedString;
 
-    private Button addEntryBttn, backBttn, viewDbBttn, submitBttn;
+    private Button addEntryBttn, backBttn, viewDbBttn, submitBttn, button_selectionExercise;;
 
 
 
@@ -89,6 +89,7 @@ public class PainFormActivity extends AppCompatActivity {
         });
 
 
+
         // VIEW DATABASE BUTTON
         viewDbBttn = findViewById(R.id.ViewPainDatabaseBttn); //for list of exercises popup and pain form input
         viewDbBttn.setOnClickListener(new View.OnClickListener(){
@@ -96,6 +97,16 @@ public class PainFormActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent i = new Intent(PainFormActivity.this, ViewPainJointsDatabase.class);
                 startActivity(i);
+            }
+        });
+
+        /// Next button
+        button_selectionExercise = findViewById((R.id.nextBttnPain));
+        button_selectionExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PainFormActivity.this,SelectionExercise.class);
+                startActivity(intent);
             }
         });
 
@@ -111,7 +122,7 @@ public class PainFormActivity extends AppCompatActivity {
         for (PainJointDataModel entry : painJointDataModel){
 
             //ONLY adds DISTINCT Joint Names to dropdown menu
-            if (!jointNameList.contains(entry.getJointName())){jointNameList.add(entry.getJointName());}
+            if (!jointNameList.contains(entry.getJointName())) {jointNameList.add(entry.getJointName());}
         }
 
         //creates adapter (Describes how the items are displayed)
