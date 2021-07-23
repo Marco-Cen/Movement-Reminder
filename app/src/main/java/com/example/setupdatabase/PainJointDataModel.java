@@ -26,7 +26,7 @@ public class PainJointDataModel extends RealmObject {
     private int painRating; //Rating out of 100 (%)
     private String painDateRecorded; //date recorded which is datetime.now on when she submitted [DD/MM/YYYY]
     private String painJointNotes;
-
+    private String TEst;
 
     //-- creating an empty constructor --
     public PainJointDataModel() {    }

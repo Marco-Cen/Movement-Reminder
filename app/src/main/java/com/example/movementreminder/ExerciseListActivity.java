@@ -105,7 +105,7 @@ public class ExerciseListActivity extends AppCompatActivity {
 
                 //Show Feedback Toast to USER (Centered)
                 Toast feedbackMsg = Toast.makeText(getApplicationContext(),"Selected: \n ID: [" + String.valueOf(position+1)
-                                                                                  + "] \n Exercise Name: [" + ((TextView) view).getText() + "]", Toast.LENGTH_SHORT);
+                                                                                  + "] \n Exercise Name: [" + ((TextView) view).getText() + "]", Toast.LENGTH_LONG);
                 feedbackMsg.setGravity(Gravity.CENTER, 0, 0);
                 feedbackMsg.show();
 
@@ -126,25 +126,33 @@ public class ExerciseListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                //Set Random Interval Range so can randomly select from list of exercises in Database (0 - gridViewValue.size())
-                int randomExerciseID = new Random().nextInt(gridViewValue.size() - 0) + 0; //0 (inclusive) and sizeCountOfExerciseListShown (exclusive)  [Accounts for ALL elements shown on screen]
+                if(gridViewValue.size() == 0) { //ERROR NULL Checking (So app doesnt crash)
+                    //Show Feedback Toast to USER (Centered)
+                    Toast nullListMsg = Toast.makeText(getApplicationContext(), "There is NO exercises to randomly choose from! Add one!", Toast.LENGTH_SHORT);
+                    nullListMsg.setGravity(Gravity.CENTER, 0, 0);
+                    nullListMsg.show();
+                }
+                else { //IF LIST IS NOT EMPTY
+                    //Set Random Interval Range so can randomly select from list of exercises in Database (0 - gridViewValue.size())
+                    int randomExerciseID = new Random().nextInt(gridViewValue.size() - 0) + 0; //0 (inclusive) and sizeCountOfExerciseListShown (exclusive)  [Accounts for ALL elements shown on screen]
 
-                // Find Random Exercise Entry selected in db
-                ExerciseDataModel entrySelected = exerciseDataModals.get(randomExerciseID); //WITH GRID SELECTED, MATCHES WITH ITEM SELECTED
+                    // Find Random Exercise Entry selected in db
+                    ExerciseDataModel entrySelected = exerciseDataModals.get(randomExerciseID); //WITH GRID SELECTED, MATCHES WITH ITEM SELECTED
 
-                //Show Feedback Toast to USER (Centered)
-                Toast feedbackMsg = Toast.makeText(getApplicationContext(),"Selected: \n ID: [" + String.valueOf(entrySelected.getIDExercise())
-                        + "] \n Exercise Name: [" + entrySelected.getExerciseName() + "]", Toast.LENGTH_SHORT);
-                feedbackMsg.setGravity(Gravity.CENTER, 0, 20);
-                feedbackMsg.show();
+                    //Show Feedback Toast to USER (Centered)
+                    Toast feedbackMsg = Toast.makeText(getApplicationContext(), "Selected: \n ID: [" + String.valueOf(entrySelected.getIDExercise())
+                            + "] \n Exercise Name: [" + entrySelected.getExerciseName() + "]", Toast.LENGTH_SHORT);
+                    feedbackMsg.setGravity(Gravity.CENTER, 0, 20);
+                    feedbackMsg.show();
 
-                // on below line we are creating a new intent to PASS all data to new activity/page location
-                Intent i = new Intent(getApplicationContext(), ExerciseSelectedActivity.class);
-                i.putExtra("IDExerciseKey", entrySelected.getIDExercise()); //Exercise ID
-                i.putExtra("exerciseNameKey", entrySelected.getExerciseName()); //Exercise name
-                i.putExtra("exerciseDurationKey", entrySelected.getExerciseTimeRequired()); //Time Required Value for timer
-                i.putExtra("exerciseNoteKey", entrySelected.getExerciseNote()); //Exercise Note
-                getApplicationContext().startActivity(i); //start activity
+                    // on below line we are creating a new intent to PASS all data to new activity/page location
+                    Intent i = new Intent(getApplicationContext(), ExerciseSelectedActivity.class);
+                    i.putExtra("IDExerciseKey", entrySelected.getIDExercise()); //Exercise ID
+                    i.putExtra("exerciseNameKey", entrySelected.getExerciseName()); //Exercise name
+                    i.putExtra("exerciseDurationKey", entrySelected.getExerciseTimeRequired()); //Time Required Value for timer
+                    i.putExtra("exerciseNoteKey", entrySelected.getExerciseNote()); //Exercise Note
+                    getApplicationContext().startActivity(i); //start activity
+                }
             }
         });
 

@@ -152,7 +152,7 @@ public class PainFormActivity extends AppCompatActivity {
                     emptySelectErrorMsg = (TextView) jointNameDropdownField.getSelectedView();
                     emptySelectErrorMsg.setError("Dummy text just so icon is added to spinner menu");
                     emptySelectErrorMsg.setTextColor(Color.RED); //Highlight error
-                    emptySelectErrorMsg.setText("<< Woah! You left the joint NAME blank! >>"); //Changes the selected item text
+                    emptySelectErrorMsg.setText("<< No JOINT NAME Selected! Select OR Add One! >>"); //Changes the selected item text
                 }
                 else{
                     jointPainValue = painSliderField.getProgress(); // Get Data from input field
