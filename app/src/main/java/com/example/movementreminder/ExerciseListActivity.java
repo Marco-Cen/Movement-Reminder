@@ -2,8 +2,10 @@ package com.example.movementreminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,12 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cruddatabase.AddExerciseEntry;
+import com.example.cruddatabase.UpdateDeleteExercisesDatabase;
 import com.example.cruddatabase.ViewExercisesDatabase;
 import com.example.cruddatabase.ViewPainJointsDatabase;
 import com.example.setupdatabase.ExerciseDataModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import io.realm.Realm;
 
@@ -58,7 +62,7 @@ public class ExerciseListActivity extends AppCompatActivity {
             }
         });
 
-        // "VIEW DATABASE" Button
+        // "VIEW DATABASE: Exercises" Button
         viewDbBttn = findViewById(R.id.viewListExerciseDbBttnListExercisePage); //for list of exercises popup and pain form input
         viewDbBttn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -78,20 +82,6 @@ public class ExerciseListActivity extends AppCompatActivity {
             }
         });
 
-//        // "Random Select" Button
-//        randomSelectBttn = (Button) findViewById((R.id.randomSelectBttnListofExercisesPage));
-//        randomSelectBttn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-        //         //Redirect to page to TIMER page with CONTENTS/INTENT passed through
-//                Intent intent = new Intent(ExerciseListActivity.this, AddExerciseEntry.class); //TestingDatabase, testingforuserinput
-//                startActivity(intent);
-
-
-//            }
-//        });
-
-
 
         //-- Logic in DISPLAY CONTENTS on SCREEN DYNAMICALLY from DB (Exercises)
         //Exercise Data Model
@@ -108,17 +98,53 @@ public class ExerciseListActivity extends AppCompatActivity {
         //UPON CLICK on EXERCISE BLOCK/CARD Tile
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                // GET POSITION OF CLICKED ITEM IN GRIDVIEW (Position starts at 0 ; L --> R)
+                ExerciseDataModel entrySelected = exerciseDataModals.get(position); //WITH GRID SELECTED, MATCHES WITH ITEM SELECTED
+
+                //Show Feedback Toast to USER (Centered)
+                Toast feedbackMsg = Toast.makeText(getApplicationContext(),"Selected: \n ID: [" + String.valueOf(position+1)
+                                                                                  + "] \n Exercise Name: [" + ((TextView) view).getText() + "]", Toast.LENGTH_SHORT);
+                feedbackMsg.setGravity(Gravity.CENTER, 0, 0);
+                feedbackMsg.show();
+
+               // on below line we are creating a new intent to PASS all data to new activity/page location
+                Intent i = new Intent(getApplicationContext(), ExerciseSelectedActivity.class);
+                i.putExtra("IDExerciseKey", entrySelected.getIDExercise()); //Exercise ID
+                i.putExtra("exerciseNameKey", entrySelected.getExerciseName()); //Exercise name
+                i.putExtra("exerciseDurationKey", entrySelected.getExerciseTimeRequired()); //Time Required Value for timer
+                i.putExtra("exerciseNoteKey", entrySelected.getExerciseNote()); //Exercise Note
+                getApplicationContext().startActivity(i); //start activity
+            }
+        });
 
 
-                Toast.makeText(getApplicationContext(),( (TextView) view).getText() + "is clicked",Toast.LENGTH_SHORT).show();
+        // "Random Select" Button
+        randomSelectBttn = (Button) findViewById((R.id.randomSelectBttnListofExercisesPage));
+        randomSelectBttn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
 
+                //Set Random Interval Range so can randomly select from list of exercises in Database (0 - gridViewValue.size())
+                int randomExerciseID = new Random().nextInt(gridViewValue.size() - 0) + 0; //0 (inclusive) and sizeCountOfExerciseListShown (exclusive)  [Accounts for ALL elements shown on screen]
 
+                // Find Random Exercise Entry selected in db
+                ExerciseDataModel entrySelected = exerciseDataModals.get(randomExerciseID); //WITH GRID SELECTED, MATCHES WITH ITEM SELECTED
 
-//                //Functionality to open/redirect to (ExerciseSelected) PAGE
-//                Intent intent = new Intent(ExerciseListActivity.this, ExerciseSelectedActivity.class);
-//                startActivity(intent);
+                //Show Feedback Toast to USER (Centered)
+                Toast feedbackMsg = Toast.makeText(getApplicationContext(),"Selected: \n ID: [" + String.valueOf(entrySelected.getIDExercise())
+                        + "] \n Exercise Name: [" + entrySelected.getExerciseName() + "]", Toast.LENGTH_SHORT);
+                feedbackMsg.setGravity(Gravity.CENTER, 0, 20);
+                feedbackMsg.show();
 
+                // on below line we are creating a new intent to PASS all data to new activity/page location
+                Intent i = new Intent(getApplicationContext(), ExerciseSelectedActivity.class);
+                i.putExtra("IDExerciseKey", entrySelected.getIDExercise()); //Exercise ID
+                i.putExtra("exerciseNameKey", entrySelected.getExerciseName()); //Exercise name
+                i.putExtra("exerciseDurationKey", entrySelected.getExerciseTimeRequired()); //Time Required Value for timer
+                i.putExtra("exerciseNoteKey", entrySelected.getExerciseNote()); //Exercise Note
+                getApplicationContext().startActivity(i); //start activity
             }
         });
 

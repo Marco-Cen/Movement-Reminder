@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    ////-- Linking Settings Button from res > menu -- [SETTINGS]
+    //[SETTINGS]
+    ////-- Linking Settings Button from res > menu --
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

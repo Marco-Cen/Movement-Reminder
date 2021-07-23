@@ -33,6 +33,8 @@ Functions:
 Note:
 - May be very slight/subtle delay of countdown timer when change orientation of phone during countdown (few millisecond to max 1-2 second)
 - Countdown Timer still works in bkgground of app WITHOUT using service
+- Need to Manually SET time bc wasnt able to auto set on landing of page (Solution: Show time required below: show exercise entry selected and its data)
+    - Initial STARTUP on landing page, not able to SET initial time on timer?? (Alt solution if hardcode int value, NOT pass intent value obtained from past activity: When reset timer, sets dynamically to selected exercise -- view TODO: (Code comment below)????
  */
 public class ExerciseSelectedActivity extends AppCompatActivity {
 
@@ -49,6 +51,11 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
     private long mTimeLeftInMillis = mStartTimeInMillis;
     private long mEndTime; //FIXES issues of slight delay (Loss of seconds) when change orientation while countdown timer running
 
+    long exerciseId;
+    String exerciseName;
+    int exerciseTimeReq;
+    String exerciseNote;
+    TextView IDExerciseSelectedField, exerciseSelectedNameField, exerciseSelectedDurationField, exerciseSelectedDescriptionField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +65,36 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
         //-- Sets title of application in Action Menu (Bar at very top) --
         setTitle("Exercise Selected!");
 
+        //-- Retrieve info sent from intent in previous page file of: 'ExerciseListActivity.java'
+         exerciseId = getIntent().getLongExtra("IDExerciseKey", 0);
+         exerciseName = getIntent().getStringExtra("exerciseNameKey");
+         exerciseTimeReq = getIntent().getIntExtra("exerciseDurationKey", 0);
+         exerciseNote = getIntent().getStringExtra("exerciseNoteKey");
+
+         //Find text fields to set text
+        IDExerciseSelectedField = findViewById(R.id.dynamicIDShow);
+        exerciseSelectedNameField = findViewById(R.id.dynamicExerciseNameTxt);
+        exerciseSelectedDurationField = findViewById(R.id.dynamicExerciseDurationTxt);
+        exerciseSelectedDescriptionField = findViewById(R.id.dynamicExerciseDescriptionTxt);
+
+        // Set data passed from previous activity (passed intent) to show to user
+        IDExerciseSelectedField.setText("[ID]: " + String.valueOf(exerciseId));
+        exerciseSelectedNameField.setText("[Name]: " +  exerciseName);
+        exerciseSelectedDurationField.setText("[Time Required]: " + String.valueOf(exerciseTimeReq) + " Minute(s)");
+        exerciseSelectedDescriptionField.setText("[Note]: " + exerciseNote);
+
+
+
         // "Skip Exercise" BUTTON
         skipExerciseBttn = findViewById(R.id.skipExerciseBttn);
         skipExerciseBttn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(ExerciseSelectedActivity.this, MainActivity.class); //TODO
+
+                //TODO: Count amount of times skipped?
+
+
+                Intent i = new Intent(ExerciseSelectedActivity.this, ExerciseListActivity.class);
                 startActivity(i);
             }
         });
@@ -136,6 +167,53 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
     }
 
 
+    //-- Built in functions override --
+    //Called After OnCreate method and CHECKS if there EXISTS an saved instance state, if not then create from beginning
+    //(This replaces the previous 'onRestoreInstanceState' method (But instead this method works in background of app as well))
+    @Override
+    protected void onStart() { //Shows actual time thats left on screen of countdown timer
+        super.onStart();
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+
+        mStartTimeInMillis = prefs.getLong("startTimeInMillis", 60000); //(can set to anything, doesnt matter)
+//        mStartTimeInMillis = Long.valueOf(exerciseTimeReq); //TODO: (Alt solution to set timer according to exercise selected -- Need to RESET timer in order to show BUT ONLY WORKS if HARDCODE VALUE (Doesnt work if send in variable of passed intent from last activity?!
+
+        mTimeLeftInMillis = prefs.getLong("millisLeft", mStartTimeInMillis);
+        mTimerRunning = prefs.getBoolean("timerRunning", false);
+        updateCountDownText();
+        updateButtons();
+
+        if (mTimerRunning) {
+            mEndTime = prefs.getLong("endTime", 0);
+            mTimeLeftInMillis = mEndTime - System.currentTimeMillis(); //to fix delay and ensure in realtime
+            if (mTimeLeftInMillis < 0) {
+                mTimeLeftInMillis = 0;
+                mTimerRunning = false; //finish countdown timer
+                updateCountDownText();
+                updateButtons();
+            } else {
+                startTimer();
+            }
+        }
+    }
+
+    //-- FIX in order to have Countdown Timer still works/run in background of app WITHOUT use of services
+    //When change orientation of phone, saves state of timer (FIXES ISSUE OF RESETTING TIMER WHEN CHANGE ORIENTATION OF PHONE)
+    //(This replaces the previous 'onSaveInstanceState' method (But instead this method works in background of app as well))
+    @Override
+    protected void onStop() { //Note: string values here should be CONSTANTS, not hardcoded for better practice
+        super.onStop();
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit(); //Saves our data
+        editor.putLong("startTimeInMillis", mStartTimeInMillis);
+        editor.putLong("millisLeft", mTimeLeftInMillis);
+        editor.putBoolean("timerRunning", mTimerRunning);
+        editor.putLong("endTime", mEndTime);
+        editor.apply();
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+        }
+    }
 
 
     //-- Helper Functions FOR ABOVE CODE --
@@ -226,48 +304,6 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
         updateButtons();
     }
 
-    //-- FIX in order to have Countdown Timer still works/run in background of app WITHOUT use of services
-    //When change orientation of phone, saves state of timer (FIXES ISSUE OF RESETTING TIMER WHEN CHANGE ORIENTATION OF PHONE)
-    //(This replaces the previous 'onSaveInstanceState' method (But instead this method works in background of app as well))
-    @Override
-    protected void onStop() { //Note: string values here should be CONSTANTS, not hardcoded for better practice
-        super.onStop();
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit(); //Saves our data
-        editor.putLong("startTimeInMillis", mStartTimeInMillis);
-        editor.putLong("millisLeft", mTimeLeftInMillis);
-        editor.putBoolean("timerRunning", mTimerRunning);
-        editor.putLong("endTime", mEndTime);
-        editor.apply();
-        if (mCountDownTimer != null) {
-            mCountDownTimer.cancel();
-        }
-    }
-    //Called After OnCreate method and CHECKS if there EXISTS an saved instance state, if not then create from beginning
-    //(This replaces the previous 'onRestoreInstanceState' method (But instead this method works in background of app as well))
-    @Override
-    protected void onStart() { //Shows actual time thats left on screen of countdown timer
-        super.onStart();
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        mStartTimeInMillis = prefs.getLong("startTimeInMillis", 30000); //represents default value we see when we run app for the first time (can set to anything, doesnt matter)
-        mTimeLeftInMillis = prefs.getLong("millisLeft", mStartTimeInMillis);
-        mTimerRunning = prefs.getBoolean("timerRunning", false);
-        updateCountDownText();
-        updateButtons();
-
-        if (mTimerRunning) {
-            mEndTime = prefs.getLong("endTime", 0);
-            mTimeLeftInMillis = mEndTime - System.currentTimeMillis(); //to fix delay and ensure in realtime
-            if (mTimeLeftInMillis < 0) {
-                mTimeLeftInMillis = 0;
-                mTimerRunning = false; //finish countdown timer
-                updateCountDownText();
-                updateButtons();
-            } else {
-                startTimer();
-            }
-        }
-    }
 
     //FIX: To Close keyboard AFTER USER INPUT 'SET TIMER' BUTTON
     private void closeKeyboard() {

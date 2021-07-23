@@ -70,7 +70,7 @@ public class starRatingPopupActivity extends Activity { //changed extends 'AppCo
             public void onClick(View v){
 
                 //Functionality to open/redirect to List of Exercises PAGE
-                Intent intent = new Intent(starRatingPopupActivity.this, MainActivity.class); //TODO: Should change to Obaida's page of List of Exercises Page
+                Intent intent = new Intent(starRatingPopupActivity.this, ExerciseListActivity.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +96,7 @@ public class starRatingPopupActivity extends Activity { //changed extends 'AppCo
 //                });
 
                 //Functionality to open/redirect to List of Exercises PAGE
-                Intent intent = new Intent(starRatingPopupActivity.this, MainActivity.class); //TODO: (#2) Should change to Obaida's page of List of Exercises Page
+                Intent intent = new Intent(starRatingPopupActivity.this, ExerciseListActivity.class);
                 startActivity(intent);
             }
         });
