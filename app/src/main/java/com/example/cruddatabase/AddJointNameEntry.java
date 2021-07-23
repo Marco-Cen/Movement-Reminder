@@ -33,8 +33,8 @@ public class AddJointNameEntry extends AppCompatActivity {
     //-- Instance Variables --
     private Realm realm;
 
-    private EditText jointNameFieldInput, jointPainValueFieldInput;
-    private String jointName, jointPainValueString; //jointPainValueString string is used for validation in if statement
+    private EditText jointNameFieldInput, jointPainValueFieldInput, jointPainNotesFieldInput;
+    private String jointName, jointPainValueString, jointPainNotesString; //jointPainValueString string is used for validation in if statement
     private int jointPainValue;
 
     private Calendar currentDateTime;
@@ -47,14 +47,14 @@ public class AddJointNameEntry extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crud_add_painjoint_entry);
+        setContentView(R.layout.activity_crud_add_jointnamepain_entry);
 
         // initializing our edittext and buttons
         realm = Realm.getDefaultInstance();
         jointNameFieldInput = findViewById(R.id.addJointNameFieldID);
         jointPainValueFieldInput = findViewById(R.id.addJointPainRateFieldID);
         jointPainValueFieldInput.setFilters(new InputFilter[]{ new HelperClass_InputRangeLimiter("1", "100")}); // (Inclusive) Limits user input to range of 1-100
-
+        jointPainNotesFieldInput = findViewById(R.id.addPainJointNoteField);
 
         // BACK BUTTON
         backBttn = findViewById(R.id.backToPainFormPageBttn);
@@ -87,6 +87,8 @@ public class AddJointNameEntry extends AppCompatActivity {
                 jointPainValueString = jointPainValueFieldInput.getText().toString();
                 if(!TextUtils.isEmpty(jointPainValueString) ) { jointPainValue = Integer.parseInt(jointPainValueString); } //If jointPain value is not empty, convert string to int
 
+                jointPainNotesString = jointPainNotesFieldInput.getText().toString();
+
                 // Input Validation (validating the text fields if empty or not)
                 if (TextUtils.isEmpty(jointName)) {
                     jointNameFieldInput.setError("Slow down! You forgot to put a JOINT NAME! \n (This'll be added into the dropdown menu on the Pain Form Page)");
@@ -99,13 +101,14 @@ public class AddJointNameEntry extends AppCompatActivity {
                     dateRecordedString = dateFormat.format(currentDateTime.getTime()); //formats date accordingly
 
                     // calling method to ADD data to Realm database..
-                    addDataToDatabase(jointName, jointPainValue, dateRecordedString);
+                    addDataToDatabase(jointName, jointPainValue, dateRecordedString, jointPainNotesString);
 
                     Toast.makeText(AddJointNameEntry.this, "New Joint/Pain Entry added to the database!", Toast.LENGTH_SHORT).show();
 
                     //Reset input fields after submission
                     jointNameFieldInput.setText("");
                     jointPainValueFieldInput.setText("");
+                    jointPainNotesFieldInput.setText("");
 
                     Intent i = new Intent(AddJointNameEntry.this, PainFormActivity.class);
                     startActivity(i);
@@ -117,7 +120,7 @@ public class AddJointNameEntry extends AppCompatActivity {
 
 
     //CREATE [in CRUD]
-    private void addDataToDatabase(String jointName, int jointPainValue, String dateSubmitted) {
+    private void addDataToDatabase(String jointName, int jointPainValue, String dateSubmitted, String NotesDescription) {
         // Creating variable for data model class.
         PainJointDataModel painJointDataModel = new PainJointDataModel();
 
@@ -136,6 +139,7 @@ public class AddJointNameEntry extends AppCompatActivity {
         painJointDataModel.setJointName(jointName);
         painJointDataModel.setPainRating(jointPainValue);
         painJointDataModel.setPainDateRecorded(dateSubmitted);
+        painJointDataModel.setPainJointNotes(NotesDescription);
 
         // Calling a method to execute a transaction.
         realm.executeTransaction(new Realm.Transaction() {

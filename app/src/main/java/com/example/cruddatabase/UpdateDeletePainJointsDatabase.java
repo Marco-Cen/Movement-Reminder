@@ -30,12 +30,12 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
 
     // Storing our values from edittext fields.
     private Realm realm;
-    private TextView idDisplayField;
+    private TextView idDisplayField, dateSubmitField;
     private long id;
     private Button updateBtn, deletebttn, dontChangebttn;
 
-    private EditText jointNameField, jointPainValueField; //creating variables for our edit text
-    private String jointName, jointPainValueString;
+    private EditText jointNameField, jointPainValueField, jointPainNotesField; //creating variables for our edit text
+    private String jointName, jointPainValueString, jointPainNotesString, jointPainDateString;
     private int jointPainValue;
 
 
@@ -47,8 +47,10 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
         // initializing our edittext and buttons
         realm = Realm.getDefaultInstance();
         idDisplayField = findViewById(R.id.idPainField);
+        dateSubmitField = findViewById(R.id.dateSubmittedField);
         jointNameField = findViewById(R.id.updateJointNameField);
         jointPainValueField= findViewById(R.id.updateJointPainValueField);
+        jointPainNotesField = findViewById(R.id.updateJointPainNotesField);
 
         updateBtn = findViewById(R.id.updateBttnUpdateJointPain);
         deletebttn = findViewById(R.id.deleteBttnJointPain);
@@ -56,14 +58,18 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
 
         // on below line we are getting data which is passed from intent.
         id = getIntent().getLongExtra("id", 0);
+        jointPainDateString = getIntent().getStringExtra("dateRecorded");
         jointName = getIntent().getStringExtra("jointName");
         jointPainValue = getIntent().getIntExtra("jointPainLevel", 0); //'name' or the first arguemnt in .get__Extra() refers to the 'key', in 'key, value' pair so can be referenced in new activity sending to [Must use same key name here and new activity to use PASSED information between pages
+        jointPainNotesString = getIntent().getStringExtra("jointPainNotesKey");
 
         // on below line we are setting data in our edit test fields. (SETTING CONTENTS into input fields)
         idDisplayField.setText("[" + String.valueOf(id) + "]");
+        dateSubmitField.setText(jointPainDateString);
         jointNameField.setText(jointName);
         jointPainValueField.setText(String.valueOf(jointPainValue));
         jointPainValueField.setFilters(new InputFilter[]{ new HelperClass_InputRangeLimiter("1", "100")}); // (Inclusive) Limits user input to range of 1-100
+        jointPainNotesField.setText(jointPainNotesString);
 
         //TEST
         Toast.makeText(UpdateDeletePainJointsDatabase.this, "Looking into ID: [" + String.valueOf(id) + "]", Toast.LENGTH_SHORT).show();
@@ -130,6 +136,8 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
                 jointPainValueString = jointPainValueField.getText().toString();
                 if(!TextUtils.isEmpty(jointPainValueString) ) { jointPainValue = Integer.parseInt(jointPainValueString); } //If jointPain value is not empty, convert string to int
 
+                jointPainNotesString = jointPainNotesField.getText().toString();
+
                 // Input Validation (validating the text fields if empty or not)
                 if (TextUtils.isEmpty(jointName)) {
                     jointNameField.setError("Woah! You left the joint NAME blank! You need to know where the pain is coming from!");
@@ -139,7 +147,8 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
                     // on below line we are getting data from our modal where
                     // the id of the course equals to which we passed previously.
                     final PainJointDataModel painJointDataModel = realm.where(PainJointDataModel.class).equalTo("IDPain", id).findFirst();
-                    updateCourse(painJointDataModel, jointName, jointPainValue);
+
+                    updateCourse(painJointDataModel, jointName, jointPainValue, jointPainNotesString);
 
                     // on below line we are displaying a toast message when course is updated.
                     Toast.makeText(UpdateDeletePainJointsDatabase.this, "UPDATED! \n \t \t ID: [" + String.valueOf(id) + "] \n \t \t Joint Name: [" + jointName + "]", Toast.LENGTH_LONG).show();
@@ -156,7 +165,7 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
 
 
     //UPDATE FUNCTION
-    private void updateCourse(PainJointDataModel painJointDataModel, String jointName, int jointPainValue) {
+    private void updateCourse(PainJointDataModel painJointDataModel, String jointName, int jointPainValue, String notesDescrip) {
 
         // on below line we are calling
         // a method to execute a transaction.
@@ -168,6 +177,8 @@ public class UpdateDeletePainJointsDatabase extends AppCompatActivity {
                 // which we get from our edit text fields.
                 painJointDataModel.setJointName(jointName);
                 painJointDataModel.setPainRating(jointPainValue);
+                painJointDataModel.setPainJointNotes(notesDescrip);
+
 
                 // inside on execute method we are calling a method to copy
                 // and update to real m database from our modal class.

@@ -44,7 +44,7 @@ public class CardContentLayout_PainJointsDB extends RecyclerView.Adapter<CardCon
     //-- Sets content INTO tile cards! --
     public class ViewHolder extends RecyclerView.ViewHolder {
         // creating variables for our text views.
-        private TextView idJointPainField, dateRecordedField, jointNameField, jointPainValueField;
+        private TextView idJointPainField, dateRecordedField, jointNameField, jointPainValueField, jointPainNotesField;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,6 +53,7 @@ public class CardContentLayout_PainJointsDB extends RecyclerView.Adapter<CardCon
             dateRecordedField = itemView.findViewById(R.id.dateRecorded);
             jointNameField = itemView.findViewById(R.id.jointName);
             jointPainValueField = itemView.findViewById(R.id.painIdDisplaytxt);
+            jointPainNotesField = itemView.findViewById(R.id.additionalNotesTxt);
         }
     }
 
@@ -62,9 +63,12 @@ public class CardContentLayout_PainJointsDB extends RecyclerView.Adapter<CardCon
     public void onBindViewHolder(@NonNull CardContentLayout_PainJointsDB.ViewHolder holder, int position) {
         PainJointDataModel modal = painJointDataModelArrayList.get(position);
         holder.idJointPainField.setText("[ID]: " + modal.getIDPain());
-        holder.dateRecordedField.setText("Date Submitted (mm-dd-yyyy 24h):  " + modal.getPainDateRecorded());
+        holder.dateRecordedField.setText("Date Submitted:  " + modal.getPainDateRecorded());
         holder.jointNameField.setText("[Joint Name]: " + modal.getJointName());
         holder.jointPainValueField.setText("[Pain Severity]: " + modal.getPainRating()+ "%");
+
+        String setNotesInput = modal.getPainJointNotes() == null ? "" : modal.getPainJointNotes(); //so doesnt show "null" to user on viewing (Unsure why only does this here and not in "cardcontentlayout_Exercisesdb"
+        holder.jointPainNotesField.setText("[Additional Notes]: \n" + setNotesInput);
 
         //-- UPDATE Function in CRUD [adding on click listener for item of recycler view] --
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +81,7 @@ public class CardContentLayout_PainJointsDB extends RecyclerView.Adapter<CardCon
                 i.putExtra("jointName", modal.getJointName());
                 i.putExtra("jointPainLevel", modal.getPainRating());
                 i.putExtra("id", modal.getIDPain());
+                i.putExtra("jointPainNotesKey", modal.getPainJointNotes());
                 // on below line we are starting a new activity.
                 context.startActivity(i);
             }

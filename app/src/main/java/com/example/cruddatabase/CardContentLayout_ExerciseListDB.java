@@ -64,7 +64,7 @@ public class CardContentLayout_ExerciseListDB extends RecyclerView.Adapter<CardC
         holder.idExerciseField.setText("[ID]: " + modal.getIDExercise());
         holder.exerciseNameField.setText("[Exercise Name]: " + modal.getExerciseName());
         holder.exerciseDurationField.setText("[Duration]: " + Integer.toString(modal.getExerciseTimeRequired()) + " Minute(s)");
-        holder.exerciseDescripField.setText("[Note]: " + modal.getExerciseNote());
+        holder.exerciseDescripField.setText("[Note]: \n" + modal.getExerciseNote());
 
         //-- UPDATE Function in CRUD [adding on click listener for item of recycler view] --
         holder.itemView.setOnClickListener(new View.OnClickListener() {

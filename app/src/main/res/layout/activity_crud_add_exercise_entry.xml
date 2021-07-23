@@ -35,21 +35,32 @@
             android:textAllCaps="false" />
     </LinearLayout>
 
+    <!--edit text to enter exercise duration-->
+
+    <!--edit text to display exercise additional notes/description -->
+
+
+    <!--button for adding new course-->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/addExerciesTitleTxt"
+            android:id="@+id/updateJointPainTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Add Exercise Entry:"
+            android:text="ADD New Exercise Entry:"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/addExerciseName"
@@ -59,43 +70,38 @@
             android:hint="Enter Exercise Name to Add" />
 
         <EditText
-            android:id="@+id/addExerciseNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Exercise Additional Notes/Description" />
-
-        <EditText
             android:id="@+id/addExerciseDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Exercise Duration (Minutes)"
             android:inputType="number" />
+
+        <EditText
+            android:id="@+id/addExerciseNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Exercise Additional Notes" />
+
+
     </LinearLayout>
 
-    <!--edit text to enter exercise duration-->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp" />
 
-    <!--edit text to display exercise additional notes/description -->
-
-
-    <!--button for adding new course-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minWidth="50dp" />
-
         <Button
             android:id="@+id/submitBttnAddExercise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SUBMIT" />
+            android:text="ADD ENTRY" />
     </LinearLayout>
 
 </LinearLayout>

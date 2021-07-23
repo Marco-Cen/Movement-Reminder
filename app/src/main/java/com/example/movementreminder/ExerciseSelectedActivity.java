@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -81,7 +84,7 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
         IDExerciseSelectedField.setText("[ID]: " + String.valueOf(exerciseId));
         exerciseSelectedNameField.setText("[Name]: " +  exerciseName);
         exerciseSelectedDurationField.setText("[Time Required]: " + String.valueOf(exerciseTimeReq) + " Minute(s)");
-        exerciseSelectedDescriptionField.setText("[Note]: " + exerciseNote);
+        exerciseSelectedDescriptionField.setText("[Note]:\n" + exerciseNote);
 
 
 
@@ -236,7 +239,13 @@ public class ExerciseSelectedActivity extends AppCompatActivity {
                 mTimerRunning = false;
                 updateButtons();
 
+                //AUDIABLE SOUND!
+                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                r.play();
+
                 Toast.makeText(ExerciseSelectedActivity.this, "Nice! -- Exercise Timer Finished! -- WhooHoo!", Toast.LENGTH_SHORT).show();  //Msg shown to user
+
 
                 //TODO: NEED OBAIDA'S PAGE TO GET EXERCISE SELECTED INTENT INFO
                 Intent starPopupIntent = new Intent(getBaseContext(), starRatingPopupActivity.class);

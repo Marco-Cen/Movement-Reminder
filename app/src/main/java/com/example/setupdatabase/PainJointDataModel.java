@@ -25,6 +25,7 @@ public class PainJointDataModel extends RealmObject {
     private String jointName;
     private int painRating; //Rating out of 100 (%)
     private String painDateRecorded; //date recorded which is datetime.now on when she submitted [DD/MM/YYYY]
+    private String painJointNotes;
 
 
     //-- creating an empty constructor --
@@ -40,5 +41,7 @@ public class PainJointDataModel extends RealmObject {
     public void setPainRating(int painRating) { this.painRating = painRating; }
     public String getPainDateRecorded() { return painDateRecorded; }
     public void setPainDateRecorded(String date) { this.painDateRecorded = date; }
+    public String getPainJointNotes(){return painJointNotes; }
+    public void setPainJointNotes(String description){this.painJointNotes = description; }
 
 }
